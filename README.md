@@ -1,43 +1,80 @@
-# sv
+# Mike’s Home Furniture
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A mobile-first furniture browsing experience for a local buy/sell business.
 
-## Creating a project
+This app is designed to make it easy for customers to:
 
-If you're seeing this, you've probably already done this step. Congrats!
+- browse inventory
+- explore by room
+- search for specific items (e.g. dressers, sofas, lamps)
+- quickly contact the seller
+
+---
+
+## 🧱 Project Structure
+
+The app is built around a simple, intentional flow:
+
+- `/` — Homepage (featured items + entry points)
+- `/categories` — Browse by room
+- `/categories/[category]` — View items in a specific room
+- `/shop` — Browse all inventory with search + filters
+- `/products/[productId]` — Individual product detail
+
+---
+
+## 🎯 Goals
+
+- Keep the experience fast and mobile-first
+- Prioritize real inventory over marketing
+- Make it easy to find and act on items quickly
+
+---
+
+## 🔍 Features
+
+- **Search**
+  - Find items by name, category, or tags
+  - Examples: `dresser`, `sofa`, `lamp`
+
+- **Category Browsing**
+  - Living Room, Bedroom, Dining, Office, etc.
+
+- **Filtering (in progress)**
+  - Type (sofa, dresser, table, etc.)
+  - Style (modern, vintage, farmhouse)
+  - Color (optional / future)
+
+- **BackLink Navigation**
+  - Context-aware navigation between categories, shop, and products
+
+- **Contact Mike**
+  - View in Marketplace and contact seller directly from product page
+
+- **View Product in Context**
+  - View product in a room setting to help visualize scale and style
+
+---
+
+## 🧪 Tech Stack
+
+- SvelteKit (Svelte 5)
+- TypeScript
+- Tailwind CSS (v4 theme config)
+- Local data (no backend yet)
+
+---
+
+## 🚀 Development
+
+Install dependencies:
 
 ```sh
-# create a new project
-npx sv create my-app
+npm install
 ```
 
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-npx sv@0.15.0 create --template minimal --types ts --add prettier eslint tailwindcss="plugins:none" --install npm mikes-garage
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Run the development server:
 
 ```sh
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
-# mikes-home-furniture
