@@ -1,10 +1,11 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import BackLink from '$lib/components/BackLink.svelte';
+	import Contact from '$lib/components/Contact.svelte';
 	import ProductCard from '$lib/components/ProductCard.svelte';
 	import { products } from '$lib/data/products';
 
-	const productId = $page.params.productId;
+	const productId = page.params.productId;
 
 	const product = products.find((item) => item.id === productId);
 
@@ -29,9 +30,28 @@
 
 		<div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
 			<div class="rounded-vintage border-border bg-surface shadow-soft overflow-hidden border">
-				<div class="bg-accent/20 aspect-4/3 sm:aspect-4/5">
+				<div class="bg-accent/20 max-h-[55vh]">
 					<img src={selectedImage} alt={product.name} class="h-full w-full object-cover" />
 				</div>
+			</div>
+
+			<div class="flex gap-3">
+				{#each product.images as image, index}
+					<button
+						type="button"
+						class=" data-[selected=true]:border-highlight h-40 w-40 border-2 border-transparent transition focus:outline-none"
+						aria-label={`View image ${index + 1} of ${product.images.length}`}
+						onclick={() => setSelectedImage(index)}
+						data-selected={selectedImage === image}
+					>
+						<img
+							src={image}
+							alt={`Thumbnail ${index + 1} for ${product.name}`}
+							class="h-full w-full cursor-pointer object-cover object-center"
+							loading="lazy"
+						/>
+					</button>
+				{/each}
 			</div>
 
 			<div class="p-5 sm:p-6">
@@ -47,6 +67,16 @@
 					${product.price}
 				</p>
 
+				{#if product.isRented || product.canRent}
+					<p class="bg-accent text-medium mt-2 w-fit px-2 pt-1.5 pb-1 font-semibold">
+						{#if product.isRented}
+							Currently Rented
+						{:else}
+							Available for rent
+						{/if}
+					</p>
+				{/if}
+
 				{#if product.material}
 					<p class="text-foreground/65 mt-4 text-sm">
 						Material: {product.material}
@@ -58,40 +88,9 @@
 				</p>
 
 				<div class="mt-6 flex flex-wrap gap-3">
-					<a
-						href="/help"
-						class="rounded-vintage border-border bg-background hover:bg-accent/30 border px-4 py-2.5 text-sm font-medium transition"
-					>
-						Ask a question
-					</a>
-
-					<a
-						href={`/shop/${product.room}`}
-						class="rounded-vintage bg-primary px-4 py-2.5 text-sm font-medium text-white transition hover:opacity-90"
-					>
-						View more in {product.room.replace(/-/g, ' ')}
-					</a>
+					<Contact productName={product.name} />
 				</div>
 			</div>
-		</div>
-
-		<div>
-			{#each product.images as image, index}
-				<button
-					type="button"
-					class=" data-[selected=true]:border-highlight h-40 w-40 border-2 border-transparent transition focus:outline-none"
-					aria-label={`View image ${index + 1} of ${product.images.length}`}
-					onclick={() => setSelectedImage(index)}
-					data-selected={selectedImage === image}
-				>
-					<img
-						src={image}
-						alt={`Thumbnail ${index + 1} for ${product.name}`}
-						class="h-full w-full cursor-pointer object-cover object-center"
-						loading="lazy"
-					/>
-				</button>
-			{/each}
 		</div>
 
 		{#if relatedProducts.length}

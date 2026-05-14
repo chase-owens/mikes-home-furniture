@@ -8,8 +8,8 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<title>Vintex</title>
-	<meta name="description" content="Vintex — vintage-inspired furniture and home styling." />
+	<title>Mikes Home Furniture</title>
+	<meta name="description" content="Local Furniture - Fair Prices." />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
 

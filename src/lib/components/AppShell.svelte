@@ -1,35 +1,18 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import closeIcon from '$lib/assets/icons/close.svg';
 	import menuIcon from '$lib/assets/icons/menu.svg';
 
 	let { children } = $props();
 
 	let isMenuOpen = $state(false);
-	let isSearchOpen = $state(false);
-
-	const isHomePage = $derived($page.url.pathname === '/');
-
-	function openMenu() {
-		isMenuOpen = true;
-	}
 
 	function closeMenu() {
 		isMenuOpen = false;
 	}
 
-	function toggleSearch() {
-		isSearchOpen = !isSearchOpen;
-	}
-
-	function closeSearch() {
-		isSearchOpen = false;
-	}
-
 	function handleKeydown(event: KeyboardEvent) {
 		if (event.key === 'Escape') {
 			closeMenu();
-			closeSearch();
 		}
 	}
 </script>
@@ -233,7 +216,7 @@
 							Facebook Marketplace
 						</a>
 						<a
-							href="tel:+1234567890"
+							href="tel:+4694996069"
 							class="rounded-vintage border-border bg-background hover:bg-accent/20 border px-4 py-3 text-sm font-semibold transition"
 							onclick={closeMenu}
 						>

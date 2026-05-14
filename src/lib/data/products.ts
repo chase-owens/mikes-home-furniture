@@ -3,6 +3,7 @@ import sofa from '$lib/assets/images/sofa-hawthorne.jpg';
 import lamp from '$lib/assets/images/floor-lamp.jpeg';
 
 export type Product = {
+	canRent?: boolean;
 	category: string;
 	condition?: Condition;
 	createdAt?: string;
@@ -10,6 +11,7 @@ export type Product = {
 	id: string;
 	images: string[];
 	isFeatured?: boolean;
+	isRented?: boolean;
 	isSale?: boolean;
 	isSold?: boolean;
 	material?: string;
@@ -23,15 +25,16 @@ export type Product = {
 
 export const products: Product[] = [
 	{
+		canRent: true,
+		category: 'Sofas',
+		description: 'A relaxed sofa with a soft silhouette and grounded profile.',
 		id: 'linen-sofa-01',
+		images: [sofa, lamp],
+		isFeatured: true,
+		material: 'Linen blend',
 		name: 'Hawthorne Linen Sofa',
 		price: 1499,
-		category: 'Sofas',
-		isFeatured: true,
 		room: 'living-room',
-		images: [sofa, lamp],
-		material: 'Linen blend',
-		description: 'A relaxed sofa with a soft silhouette and grounded profile.',
 		tags: ['new-arrival', 'best-seller', 'living-room', 'sofa'],
 		type: 'sofa'
 	},
@@ -76,6 +79,7 @@ export const products: Product[] = [
 		price: 249,
 		category: 'Lighting',
 		isFeatured: true,
+		isRented: true,
 		room: 'living-room',
 		images: [lamp],
 		material: 'Brass finish',

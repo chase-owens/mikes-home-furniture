@@ -5,18 +5,9 @@
 
 	import { categories } from '$lib/data/navigation';
 	import { products } from '$lib/data/products';
+	import content from '$lib/data/content.json';
 
-	const quickSteps = [
-		'Browse available furniture',
-		'Message or call Mike to reserve it',
-		'Pick up locally or ask about delivery'
-	];
-
-	const highlights = [
-		'New inventory added often',
-		'Local pickup & delivery',
-		'Message to purchase'
-	];
+	const { quickSteps } = content;
 
 	const featuredItems = products.filter((product) => product.isFeatured);
 </script>
@@ -215,7 +206,7 @@
 			</a>
 
 			<a
-				href="tel:+1234567890"
+				href="tel:+4694996069"
 				class="rounded-vintage border-border bg-background text-text hover:bg-accent/20 border px-5 py-3 text-center text-sm font-medium transition"
 			>
 				Call / Text Mike

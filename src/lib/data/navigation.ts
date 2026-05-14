@@ -92,7 +92,7 @@ export const categoryNav = [
 export const utilityNav = [
 	{ label: 'Contact', href: '/contact' },
 	{ label: 'Facebook Marketplace', href: 'https://facebook.com', external: true },
-	{ label: 'Call / Text Mike', href: 'tel:+1234567890', external: true }
+	{ label: 'Call / Text Mike', href: 'tel:+4694996069', external: true }
 ];
 
 // export function getNavLabelByHref(href: string): string | null {
