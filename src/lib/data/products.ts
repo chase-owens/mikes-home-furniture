@@ -14,6 +14,7 @@ export type Product = {
 	isRented?: boolean;
 	isSale?: boolean;
 	isSold?: boolean;
+	marketplaceUrl?: string;
 	material?: string;
 	name: string;
 	price: number;

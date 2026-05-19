@@ -3,6 +3,7 @@
 	import { products } from '$lib/data/products';
 	import CategoryCard from '$lib/components/CategoryCard.svelte';
 	import livingRoom from '$lib/assets/images/living-room.jpeg';
+	import BackLink from '$lib/components/BackLink.svelte';
 
 	const links = [
 		{ label: 'Sofas', href: '/shop/living-room' },
@@ -43,6 +44,7 @@
 	const livingRoomProducts = products.filter((product) => product.room === 'living-room');
 </script>
 
+<BackLink />
 <section class="space-y-4">
 	<div class="flex items-end justify-between gap-4">
 		<div>

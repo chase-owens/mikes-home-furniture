@@ -1,6 +1,7 @@
 <script lang="ts">
 	import closeIcon from '$lib/assets/icons/close.svg';
 	import menuIcon from '$lib/assets/icons/menu.svg';
+	import '../../app.css';
 
 	let { children } = $props();
 
@@ -39,7 +40,7 @@
 				href="/"
 				class="font-heading text-foreground text-[1.65rem] leading-none tracking-[-0.02em]"
 			>
-				Mike’s Home Furniture
+				Vinteeks
 			</a>
 
 			<div class="w-12"></div>
@@ -248,14 +249,14 @@
 		</div>
 	</aside>
 
-	<main class="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+	<main class="mx-auto w-full max-w-7xl gap-16 px-12 py-6 sm:px-6 lg:px-8 lg:py-8">
 		{@render children()}
 	</main>
 
 	<footer class="border-border bg-surface border-t">
 		<div class="text-foreground/75 mx-auto max-w-7xl px-4 py-8 text-sm sm:px-6 lg:px-8">
 			<div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-				<p>© 2026 Mike’s Home Furniture. Quality home furniture and local finds.</p>
+				<p>© 2026 Vinteeks. Quality home furniture and local finds.</p>
 
 				<div class="flex flex-wrap gap-4">
 					<a href="/about" class="hover:text-primary">About</a>

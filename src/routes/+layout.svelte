@@ -3,6 +3,31 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import AppShell from '$lib/components/AppShell.svelte';
 
+	import { afterNavigate } from '$app/navigation';
+	import { navigationStack } from '$lib/stores/navigationStack';
+
+	afterNavigate(({ to }) => {
+		if (!to) {
+			return;
+		}
+
+		const path = to.url.pathname;
+
+		if (path === '/') {
+			navigationStack.clear();
+		}
+
+		if (
+			path === '/' ||
+			path === '/categories' ||
+			path.startsWith('/categories/') ||
+			path === '/shop' ||
+			path.startsWith('/products/')
+		) {
+			navigationStack.push(path);
+		}
+	});
+
 	let { children } = $props();
 </script>
 
