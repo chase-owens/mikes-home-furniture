@@ -81,6 +81,7 @@ export const products: Product[] = [
 		category: 'Lighting',
 		isFeatured: true,
 		isRented: true,
+		isSale: true,
 		room: 'living-room',
 		images: [lamp],
 		material: 'Brass finish',

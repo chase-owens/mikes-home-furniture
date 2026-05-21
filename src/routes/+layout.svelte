@@ -33,7 +33,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<title>Mikes Home Furniture</title>
+	<title>Vinteeks</title>
 	<meta name="description" content="Local Furniture - Fair Prices." />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>

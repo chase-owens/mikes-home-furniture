@@ -1,11 +1,13 @@
 import { categories } from '$lib/data/navigation';
 
-export function getBackLabel(backTarget: string, from: string | null) {
+export function getBackLabel(backTarget: string) {
 	const isTargetCategoryPage = backTarget === '/categories';
 	const isTargetProductPage = backTarget.startsWith('/products/');
 	const isTargetShopPage = backTarget === '/shop';
 
-	const fromCategory = categories.find((category) => category.href === from);
+	const categoryId = backTarget.split('/').at(-1) ?? '';
+
+	const fromCategory = categories.find((category) => category.slug === categoryId);
 
 	if (fromCategory) {
 		return `Return to ${fromCategory.label}`;

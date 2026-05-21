@@ -4,9 +4,8 @@
 	import { useBackNavigation } from '$lib/hooks/useBackNavigation';
 	import { getBackLabel } from '$lib/utils/getBackLabel';
 
-	const from = $derived($page.url.searchParams.get('from'));
 	const { backTarget, goBack } = useBackNavigation();
-	const backLabel = $derived(getBackLabel($backTarget, from));
+	const backLabel = $derived(getBackLabel($backTarget));
 </script>
 
 <button
