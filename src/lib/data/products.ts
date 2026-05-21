@@ -14,6 +14,7 @@ export type Product = {
 	isRented?: boolean;
 	isSale?: boolean;
 	isSold?: boolean;
+	marketplaceUrl?: string;
 	material?: string;
 	name: string;
 	price: number;
@@ -80,6 +81,7 @@ export const products: Product[] = [
 		category: 'Lighting',
 		isFeatured: true,
 		isRented: true,
+		isSale: true,
 		room: 'living-room',
 		images: [lamp],
 		material: 'Brass finish',

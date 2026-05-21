@@ -5,9 +5,9 @@
 	import ProductCard from '$lib/components/ProductCard.svelte';
 	import { products } from '$lib/data/products';
 
-	const productId = page.params.productId;
+	const productId = $derived(page.params.productId);
 
-	const product = products.find((item) => item.id === productId);
+	const product = $derived(products.find((item) => item.id === productId));
 
 	let selectedImage = $state<string | undefined>(undefined);
 
@@ -19,9 +19,11 @@
 		selectedImage = product?.images[index];
 	};
 
-	const relatedProducts = product
-		? products.filter((item) => item.room === product.room && item.id !== product.id).slice(0, 3)
-		: [];
+	const relatedProducts = $derived(
+		product
+			? products.filter((item) => item.room === product.room && item.id !== product.id).slice(0, 3)
+			: []
+	);
 </script>
 
 {#if product}
@@ -87,8 +89,8 @@
 					{product.description}
 				</p>
 
-				<div class="mt-6 flex flex-wrap gap-3">
-					<Contact productName={product.name} />
+				<div class="mt-6">
+					<Contact marketplaceUrl={product.marketplaceUrl} productName={product.name} />
 				</div>
 			</div>
 		</div>

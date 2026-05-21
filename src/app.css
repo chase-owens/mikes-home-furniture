@@ -41,7 +41,25 @@
 	}
 
 	::selection {
-		background: color-mix(in srgb, var(--color-accent) 45%, white);
+		background: color-mix(in rgb, var(--color-accent) 45%, white);
 		color: var(--color-foreground);
+	}
+}
+
+@layer components {
+	.btn-base {
+		@apply rounded-vintage shadow-soft px-4 py-4 text-center text-sm font-medium transition-colors;
+	}
+
+	.btn-border {
+		border: 2px solid var(--color-border);
+	}
+
+	.btn-primary {
+		@apply bg-primary text-white;
+	}
+
+	.btn-secondary {
+		@apply text-foreground border-foreground border-2;
 	}
 }

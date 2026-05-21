@@ -1,4 +1,4 @@
-# Mike’s Home Furniture
+# Vinteeks
 
 A mobile-first furniture browsing experience for a local buy/sell business.
 

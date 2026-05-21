@@ -1,4 +1,10 @@
 <script lang="ts">
+	import ProductListingPage from '$lib/components/ProductListingPage.svelte';
+	import { products } from '$lib/data/products';
+	import { listingPages } from '$lib/config/listingPages';
+
+	const listing = listingPages['sale'];
+	const listingProducts = products.filter(listing.filter);
 </script>
 
-<h1>new arrivals</h1>
+<ProductListingPage {listing} products={listingProducts} />
