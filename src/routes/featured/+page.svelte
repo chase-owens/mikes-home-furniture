@@ -4,8 +4,8 @@
 	import { productsStore } from '$lib/stores/productsStore';
 	import { getProductsByFilterKey } from '$lib/utils/getProductsByFilterKey';
 
-	const { title } = listingPages['new-arrivals'];
-	const listingProducts = getProductsByFilterKey($productsStore, 'new-arrivals');
+	const { title } = listingPages['featured'];
+	const listingProducts = getProductsByFilterKey($productsStore, 'featured');
 </script>
 
 <ProductListingPage {title} products={listingProducts} />

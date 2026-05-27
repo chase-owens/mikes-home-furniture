@@ -1,10 +1,11 @@
 <script lang="ts">
-	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
-	import AppShell from '$lib/components/AppShell.svelte';
+	import AppShell from '$lib/components/layout/AppShell.svelte';
 
 	import { afterNavigate } from '$app/navigation';
 	import { navigationStack } from '$lib/stores/navigationStack';
+
+	import { productsStore } from '$lib/stores/productsStore.js';
 
 	afterNavigate(({ to }) => {
 		if (!to) {
@@ -22,13 +23,17 @@
 			path === '/categories' ||
 			path.startsWith('/categories/') ||
 			path === '/shop' ||
-			path.startsWith('/products/')
+			path.startsWith('/products/') ||
+			path.startsWith('/rooms')
 		) {
 			navigationStack.push(path);
 		}
 	});
 
-	let { children } = $props();
+	let { children, data } = $props();
+
+	// svelte-ignore state_referenced_locally
+	productsStore.set(data.products);
 </script>
 
 <svelte:head>
@@ -38,4 +43,5 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
 
-<AppShell>{@render children()}</AppShell>
+<AppShell {...data.sidebar}>{@render children()}</AppShell>
+s

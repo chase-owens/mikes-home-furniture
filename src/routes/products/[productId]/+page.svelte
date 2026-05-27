@@ -1,13 +1,14 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import BackLink from '$lib/components/BackLink.svelte';
-	import Contact from '$lib/components/Contact.svelte';
-	import ProductCard from '$lib/components/ProductCard.svelte';
-	import { products } from '$lib/data/products';
+	import BackLink from '$lib/components/ui/BackLink.svelte';
+	import Contact from '$lib/components/ui/Contact.svelte';
+	import ProductCard from '$lib/components/cards/ProductCard.svelte';
+	import { productsStore } from '$lib/stores/productsStore';
+	import CardGrid from '$lib/components/layout/CardGrid.svelte';
 
 	const productId = $derived(page.params.productId);
 
-	const product = $derived(products.find((item) => item.id === productId));
+	const product = $derived($productsStore.find((item) => item.id === productId));
 
 	let selectedImage = $state<string | undefined>(undefined);
 
@@ -21,7 +22,9 @@
 
 	const relatedProducts = $derived(
 		product
-			? products.filter((item) => item.room === product.room && item.id !== product.id).slice(0, 3)
+			? $productsStore
+					.filter((item) => item.room === product.room && item.id !== product.id)
+					.slice(0, 3)
 			: []
 	);
 </script>
@@ -58,7 +61,7 @@
 
 			<div class="p-5 sm:p-6">
 				<p class="text-highlight text-xs font-medium tracking-[0.25em] uppercase">
-					{product.category}
+					{product.type}
 				</p>
 
 				<h1 class="mt-3 text-3xl leading-tight sm:text-4xl">
@@ -69,9 +72,9 @@
 					${product.price}
 				</p>
 
-				{#if product.isRented || product.canRent}
+				{#if product.status === 'rented' || product.canRent}
 					<p class="bg-accent text-medium mt-2 w-fit px-2 pt-1.5 pb-1 font-semibold">
-						{#if product.isRented}
+						{#if product.status === 'rented'}
 							Currently Rented
 						{:else}
 							Available for rent
@@ -104,11 +107,7 @@
 					<h2 class="mt-2 text-2xl sm:text-3xl">Related pieces</h2>
 				</div>
 
-				<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-					{#each relatedProducts as relatedProduct}
-						<ProductCard product={relatedProduct} />
-					{/each}
-				</div>
+				<CardGrid items={relatedProducts} Component={ProductCard} />
 			</section>
 		{/if}
 	</section>

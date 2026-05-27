@@ -1,6 +1,7 @@
 /* eslint-disable svelte/no-navigation-without-resolve */
 // $lib/hooks/useBackNavigation.ts
 import { derived, get } from 'svelte/store';
+
 import { goto } from '$app/navigation';
 import { navigationStack } from '$lib/stores/navigationStack';
 

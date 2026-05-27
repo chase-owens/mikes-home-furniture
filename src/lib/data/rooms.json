@@ -1,0 +1,39 @@
+{
+  "rooms": [
+    {
+      "slug": "'living-room",
+      "label": "Living Room",
+      "href": "/rooms/living-room",
+      "description": "Sofas, recliners,coffee tables, storage, and accents",
+      "image": "/living-room.jpeg"
+    },
+    {
+      "slug": "bedroom",
+      "label": "Bedroom",
+      "href": "/rooms/bedroom",
+      "description": "Beds, nightstands, dressers, and linens",
+      "image": "/bedroom.png"
+    },
+    {
+      "slug": "dining",
+      "label": "Dining",
+      "href": "/rooms/dining",
+      "description": "Tables, chairs, bar carts, and serveware",
+      "image": "/kitchen.jpeg"
+    },
+    {
+      "slug": "office",
+      "label": "Home Office",
+      "href": "/rooms/office",
+      "description": "Desks, shelving, and lighting for workspaces",
+      "image": "/kitchen.jpeg"
+    },
+    {
+      "slug": "outdoor",
+      "label": "Outdoor",
+      "href": "/rooms/outdoor",
+      "description": "Furniture and accessories for outdoor living",
+      "image": "/kitchen.jpeg"
+    }
+  ]
+}

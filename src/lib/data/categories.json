@@ -1,0 +1,32 @@
+{
+  "categories": [
+    {
+      "slug": "lighting",
+      "label": "Lighting",
+      "href": "/categories/lighting",
+      "description": "Lamps, pendants, sconces, and mood lighting",
+      "image": "/floor-lamp.jpeg"
+    },
+    {
+      "slug": "decor",
+      "label": "Decor",
+      "href": "/categories/decor",
+      "description": "Mirrors, ceramics, artwork, and styling pieces",
+      "image": "/kitchen.jpeg"
+    },
+    {
+      "slug": "rugs",
+      "label": "Rugs",
+      "href": "/categories/rugs",
+      "description": "Natural textures, muted patterns, and layers",
+      "image": "/kitchen.jpeg"
+    },
+    {
+      "slug": "sale",
+      "label": "Sale",
+      "href": "/sale",
+      "description": "Limited quantities and seasonal markdowns",
+      "image": "/mikes-hero.jpeg"
+    }
+  ]
+}

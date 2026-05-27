@@ -62,4 +62,12 @@
 	.btn-secondary {
 		@apply text-foreground border-foreground border-2;
 	}
+
+	.btn-link-primary {
+		@apply text-primary;
+	}
+
+	.btn-link-secondary {
+		@apply text-foreground;
+	}
 }
