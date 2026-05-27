@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import backArrow from '$lib/assets/icons/back-arrow.svg';
 	import { useBackNavigation } from '$lib/hooks/useBackNavigation';
 	import { getBackLabel } from '$lib/utils/getBackLabel';

@@ -1,13 +1,7 @@
 <script lang="ts">
-	import '../../app.css';
+	import { email, phoneNumber, facebookUrl } from '$lib/data/app-config.json';
 
-	let {
-		marketplaceUrl = undefined,
-		productName,
-		phoneNumber = '4694996069',
-		facebookUrl = 'https://www.facebook.com/marketplace/profile/100069433731299/',
-		email = 'Mikepines@yahoo.com'
-	} = $props();
+	let { marketplaceUrl = undefined, productName } = $props();
 
 	const message = $derived(
 		productName

@@ -3,15 +3,14 @@ import type { Product } from '$lib/data/products';
 export const listingPages = {
 	bedroom: {
 		description: 'Beds, dressers, and nightstands',
-		filter: (product: Product) => product.room === 'bedroom',
-		href: '/categories/bedroom',
+		href: '/rooms/bedroom',
 		label: 'Bedroom',
 		title: 'Bedroom'
 	},
 
 	decor: {
 		description: 'Mirrors, ceramics, artwork, and styling pieces',
-		filter: (product: Product) => product.room === 'decor',
+		filter: (product: Product) => product.type === 'decor',
 		href: '/categories/decor',
 		label: 'Decor',
 		title: 'Decor'
@@ -19,15 +18,20 @@ export const listingPages = {
 
 	dining: {
 		description: 'Tables, chairs, bar carts, and serveware',
-		filter: (product: Product) => product.room === 'dining',
-		href: '/categories/dining',
+		href: '/rooms/dining',
 		label: 'Dining',
 		title: 'Dining'
 	},
 
+	featured: {
+		description: 'A curated selection of our favorite pieces',
+		href: '/featured',
+		label: 'Featured',
+		title: 'Featured'
+	},
+
 	lighting: {
 		description: 'Lamps, pendants, sconces, and mood lighting',
-		filter: (product: Product) => product.room === 'lighting',
 		href: '/categories/lighting',
 		label: 'Lighting',
 		title: 'Lighting'
@@ -35,15 +39,13 @@ export const listingPages = {
 
 	'living-room': {
 		description: 'Sofas, coffee tables, and accent seating',
-		filter: (product: Product) => product.room === 'living-room',
-		href: '/categories/living-room',
+		href: '/rooms/living-room',
 		label: 'Living room',
 		title: 'Living room'
 	},
 
 	'new-arrivals': {
 		description: 'Fresh finds just added',
-		filter: (product: Product) => product.tags?.includes('new-arrival'),
 		href: '/new-arrivals',
 		label: 'New arrivals',
 		title: 'New arrivals'
@@ -51,15 +53,14 @@ export const listingPages = {
 
 	office: {
 		description: 'Desks, shelving, and lighting for workspaces',
-		filter: (product: Product) => product.room === 'office',
-		href: '/categories/office',
+		href: '/rooms/office',
 		label: 'Office',
 		title: 'Office'
 	},
 
 	rugs: {
 		description: 'Natural textures, muted patterns, and layers',
-		filter: (product: Product) => product.room === 'rugs',
+		filter: (product: Product) => product.type === 'rug',
 		href: '/categories/rugs',
 		label: 'Rugs',
 		title: 'Rugs'
@@ -67,7 +68,6 @@ export const listingPages = {
 
 	sale: {
 		description: 'Marked down pieces',
-		filter: (product: Product) => product.isSale,
 		href: '/sale',
 		label: 'Sale',
 		title: 'Sale'

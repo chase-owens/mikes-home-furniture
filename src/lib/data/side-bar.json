@@ -1,0 +1,22 @@
+{
+  "ctas": [
+    {
+      "label": "Shop All",
+      "href": "/shop"
+    },
+    {
+      "label": "New Arrivals",
+      "href": "/new-arrivals"
+    },
+    {
+      "label": "Sale",
+      "href": "/sale"
+    }
+  ],
+  "featuredCta": {
+    "title": "Save",
+    "subtitle": "Sale finds",
+    "description": "Limited-quantity markdowns and seasonal favorites.",
+    "href": "/sale"
+  }
+}

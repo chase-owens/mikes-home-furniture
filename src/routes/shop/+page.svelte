@@ -1,26 +1,29 @@
 <script lang="ts">
-	import BackLink from '$lib/components/BackLink.svelte';
-	import ProductCard from '$lib/components/ProductCard.svelte';
-	import { products, type Product } from '$lib/data/products';
+	import BackLink from '$lib/components/ui/BackLink.svelte';
+	import ProductCard from '$lib/components/cards/ProductCard.svelte';
+	import { type Product } from '$lib/data/products';
+	import { productsStore } from '$lib/stores/productsStore';
+	import CardGrid from '$lib/components/layout/CardGrid.svelte';
 
 	let searchTerm = $state<string>('');
+	let lowerCaseSearchTerm = $derived(searchTerm.toLowerCase());
 
 	const filteredProducts: Product[] = $derived(
 		!searchTerm
-			? products
-			: products.filter(
-					(product) =>
-						product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-						product.type?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-						product.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-						product.tags?.some((t) => t.toLowerCase().includes(searchTerm.toLowerCase()))
+			? $productsStore
+			: $productsStore.filter(
+					({ category, name, type, tags }) =>
+						name.toLowerCase().includes(lowerCaseSearchTerm) ||
+						type.includes(lowerCaseSearchTerm) ||
+						category.includes(lowerCaseSearchTerm) ||
+						tags?.some((tag) => tag.includes(lowerCaseSearchTerm))
 				)
 	);
 </script>
 
 <section class="space-y-6">
 	<BackLink />
-	<h1 class="font-heading mb-4 text-2xl">Shop All</h1>
+	<h1 class="font-heading mb-4 text-2xl">Search by name, material, room, or category</h1>
 
 	<input
 		type="text"
@@ -31,11 +34,7 @@
 
 	{#if filteredProducts.length}
 		<section>
-			<div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-				{#each filteredProducts as product}
-					<ProductCard {product} />
-				{/each}
-			</div>
+			<CardGrid items={filteredProducts} Component={ProductCard} />
 		</section>
 	{/if}
 </section>
