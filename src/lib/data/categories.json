@@ -12,14 +12,14 @@
       "label": "Decor",
       "href": "/categories/decor",
       "description": "Mirrors, ceramics, artwork, and styling pieces",
-      "image": "/kitchen.jpeg"
+      "image": "/decor.png"
     },
     {
       "slug": "rugs",
       "label": "Rugs",
       "href": "/categories/rugs",
       "description": "Natural textures, muted patterns, and layers",
-      "image": "/kitchen.jpeg"
+      "image": "/rugs.png"
     },
     {
       "slug": "sale",

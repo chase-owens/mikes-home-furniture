@@ -1,6 +1,6 @@
 {
   "hero": {
-    "image": "/mikes-hero.jpeg",
+    "image": "/living-room-2.png",
     "title": "Local furniture. Fair prices. Fresh finds.",
     "subTitle": "Quality furniture, minus the markup.",
     "description": "Create a living space that feels collected, comfortable, and quietly refined.",
@@ -26,6 +26,25 @@
     ]
   },
   "modules": [
+    {
+      "title": "How It Works",
+      "subTitle": "Simple, fast, and local.",
+      "steps": [
+        {
+          "description": "Browse available furniture",
+          "title": "Step 1"
+        },
+        {
+          "description": "Message or call Mike to reserve it",
+          "title": "Step 2"
+        },
+        {
+          "description": "Pick up locally or ask about delivery",
+          "title": "Step 3"
+        }
+      ],
+      "type": "stepCard"
+    },
     {
       "productType": "featured",
       "subTitle": "Start with our top picks",
@@ -93,25 +112,6 @@
       "subTitle": "Fresh pieces added often.",
       "background": "dark",
       "type": "ctaCard"
-    },
-    {
-      "title": "How It Works",
-      "subTitle": "Simple, fast, and local.",
-      "steps": [
-        {
-          "description": "Browse available furniture",
-          "title": "Step 1"
-        },
-        {
-          "description": "Message or call Mike to reserve it",
-          "title": "Step 2"
-        },
-        {
-          "description": "Pick up locally or ask about delivery",
-          "title": "Step 3"
-        }
-      ],
-      "type": "stepCard"
     },
     {
       "title": "Ready to buy",

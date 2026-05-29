@@ -1,5 +1,3 @@
-import lamp from '$lib/assets/images/floor-lamp.jpeg';
-
 export type Room = 'living-room' | 'bedroom' | 'dining-room' | 'office' | 'outdoor';
 // | 'lighting'
 // | 'rugs'
@@ -89,13 +87,13 @@ export const products: Product[] = [
 	},
 	{
 		id: 'floor-lamp-01',
-		name: 'Brass Reading Floor Lamp',
-		price: 249,
+		name: 'Manises Vintage Table Lamp with Liberty London Lampshade',
+		price: 1430,
 		category: 'lighting',
 		isFeatured: true,
 		isSale: true,
 		room: 'bedroom',
-		images: [lamp],
+		images: ['/lamp.png'],
 		material: 'Brass finish',
 		description: 'A warm metallic accent for layered evening lighting.',
 		status: 'rented',
@@ -107,7 +105,7 @@ export const products: Product[] = [
 		price: 389,
 		category: 'rugs',
 		room: 'living-room',
-		images: ['https://placehold.co/800x1000?text=Willow+Woven+Rug'],
+		images: ['/rug.png'],
 		material: 'Wool blend',
 		description: 'Soft texture and muted pattern to ground the room.',
 		status: 'reserved',
