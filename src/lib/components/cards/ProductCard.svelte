@@ -3,7 +3,7 @@
 
 	const { name, description, price, id, images, type, material, canRent, status }: Product =
 		$props();
-	const href = $derived(`products/${id}`);
+	const href = $derived(`/products/${id}`);
 </script>
 
 <article

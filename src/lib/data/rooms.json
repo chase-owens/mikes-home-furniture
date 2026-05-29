@@ -5,7 +5,7 @@
       "label": "Living Room",
       "href": "/rooms/living-room",
       "description": "Sofas, recliners,coffee tables, storage, and accents",
-      "image": "/living-room.jpeg"
+      "image": "/living-room-3.png"
     },
     {
       "slug": "bedroom",
@@ -26,14 +26,14 @@
       "label": "Home Office",
       "href": "/rooms/office",
       "description": "Desks, shelving, and lighting for workspaces",
-      "image": "/kitchen.jpeg"
+      "image": "/office.jpg"
     },
     {
       "slug": "outdoor",
       "label": "Outdoor",
       "href": "/rooms/outdoor",
       "description": "Furniture and accessories for outdoor living",
-      "image": "/kitchen.jpeg"
+      "image": "/outdoor.png"
     }
   ]
 }

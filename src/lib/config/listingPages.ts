@@ -71,6 +71,13 @@ export const listingPages = {
 		href: '/sale',
 		label: 'Sale',
 		title: 'Sale'
+	},
+
+	shop: {
+		description: 'Browse all of our available pieces',
+		href: '/shop',
+		label: 'Shop',
+		title: 'Search by name, material, room, or category'
 	}
 } as const;
 

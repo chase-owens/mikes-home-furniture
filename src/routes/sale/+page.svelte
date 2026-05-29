@@ -1,11 +1,7 @@
 <script lang="ts">
-	import ProductListingPage from '$lib/components/layout/ProductListingPage.svelte';
-	import { listingPages } from '$lib/config/listingPages';
-	import { productsStore } from '$lib/stores/productsStore';
-	import { getProductsByFilterKey } from '$lib/utils/getProductsByFilterKey';
+	import ListingPage from '$lib/components/layout/ListingPage.svelte';
 
-	const { title } = listingPages['sale'];
-	const listingProducts = getProductsByFilterKey($productsStore, 'sale');
+	const { data } = $props();
 </script>
 
-<ProductListingPage {title} products={listingProducts} />
+<ListingPage {...data} />

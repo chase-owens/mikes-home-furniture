@@ -3,15 +3,17 @@ import { error } from '@sveltejs/kit';
 import { listingPages } from '$lib/config/listingPages';
 import { getProductsByFilterKey } from '$lib/utils/getProductsByFilterKey';
 
-export const load = async ({ parent, params }) => {
-	const { title } = listingPages[params.roomId as keyof typeof listingPages];
+import type { PageServerLoad } from '../$types';
+
+export const load: PageServerLoad = async ({ parent }) => {
+	const { title } = listingPages['sale'];
 	const { products } = await parent();
 
 	if (!title) {
-		throw error(404, 'Category not found');
+		throw error(404, 'Listing not found');
 	}
 
-	const items = getProductsByFilterKey(products, params.roomId);
+	const items = getProductsByFilterKey(products, 'sale');
 
 	return {
 		items,

@@ -13,7 +13,7 @@
 	<title>Vinteeks | Home</title>
 </svelte:head>
 
-<div class="flex flex-col gap-16 sm:gap-12 md:gap-4">
+<div class="flex flex-col gap-12">
 	<HomepageHero {...hero} />
 	<ModuleRenderer {modules} />
 </div>

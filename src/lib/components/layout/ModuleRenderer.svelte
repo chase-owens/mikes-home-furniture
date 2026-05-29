@@ -19,7 +19,7 @@
 	};
 </script>
 
-<div class="flex flex-col gap-16 sm:gap-12 md:gap-4">
+<div class="flex flex-col gap-12">
 	{#each modules as module}
 		{@const Module = componentMap[module.type]}
 		{#if Module}
