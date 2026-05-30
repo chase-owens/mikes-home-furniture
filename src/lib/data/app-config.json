@@ -1,5 +1,4 @@
 {
-  "email": "Mikepines@yahoo.com",
-  "facebookUrl": "https://www.facebook.com/marketplace/profile/100069433731299/",
-  "phoneNumber": "4694996069"
+  "environment": "dev",
+  "version": "1.0.0"
 }

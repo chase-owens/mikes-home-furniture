@@ -1,7 +1,9 @@
 <script lang="ts">
-	import { facebookUrl, phoneNumber } from '$lib/data/app-config.json';
+	import contactInfo from '$lib/data/contact-info.json';
+	import { getFacebookUrl } from '$lib/utils/getFacebookUrl';
 
-	const phoneHref = `tel:+${phoneNumber}`;
+	const phoneHref = `tel:+${contactInfo.phoneNumber}`;
+	const metaUrl = getFacebookUrl(contactInfo.socials);
 
 	const { title, subTitle, description } = $props();
 </script>
@@ -21,14 +23,15 @@
 		</div>
 
 		<div class="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-0">
-			<a
-				href={facebookUrl}
-				target="_blank"
-				rel="noreferrer"
-				class="rounded-vintage bg-primary shadow-soft px-5 py-3 text-center text-sm font-medium text-white transition hover:opacity-90"
-			>
-				Message on Facebook
-			</a>
+			{#if metaUrl}
+				<a
+					href={getFacebookUrl(contactInfo.socials)}
+					target="_blank"
+					rel="noreferrer"
+					class="rounded-vintage bg-primary shadow-soft px-5 py-3 text-center text-sm font-medium text-white transition hover:opacity-90"
+				>
+					Message on Facebook
+				</a>{/if}
 
 			<a
 				href={phoneHref}
