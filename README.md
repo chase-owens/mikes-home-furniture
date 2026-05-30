@@ -40,7 +40,7 @@ The app is built around a simple, intentional flow:
 - **Category Browsing**
   - Living Room, Bedroom, Dining, Office, etc.
 
-- **Filtering (in progress)**
+- **Filtering**
   - Type (sofa, dresser, table, etc.)
   - Style (modern, vintage, farmhouse)
   - Color (optional / future)

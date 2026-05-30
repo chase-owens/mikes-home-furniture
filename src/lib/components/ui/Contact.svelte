@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { email, phoneNumber, facebookUrl } from '$lib/data/app-config.json';
+	import { email, phoneNumber, socials } from '$lib/data/contact-info.json';
+	import { getFacebookUrl } from '$lib/utils/getFacebookUrl';
 
 	let { marketplaceUrl = undefined, productName } = $props();
 
@@ -11,7 +12,7 @@
 
 	const primaryCta = $derived({
 		label: marketplaceUrl ? 'View on Marketplace' : 'Message on Facebook',
-		url: marketplaceUrl ?? facebookUrl
+		url: marketplaceUrl ?? getFacebookUrl(socials)
 	});
 </script>
 

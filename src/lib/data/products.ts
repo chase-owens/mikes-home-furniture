@@ -1,7 +1,4 @@
 export type Room = 'living-room' | 'bedroom' | 'dining-room' | 'office' | 'outdoor';
-// | 'lighting'
-// | 'rugs'
-// | 'decor';
 export type Category = 'sofas' | 'chairs' | 'tables' | 'storage' | 'lighting' | 'rugs' | 'decor';
 export type Condition = 'New' | 'Like New' | 'Good' | 'Fair' | 'Poor';
 export type Status = 'available' | 'sold' | 'rented' | 'reserved';
