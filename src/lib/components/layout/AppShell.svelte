@@ -155,13 +155,6 @@
 		<div class="text-foreground/75 mx-auto max-w-7xl px-4 py-8 text-sm sm:px-6 lg:px-8">
 			<div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
 				<p>© 2026 Vinteeks. Quality home furniture and local finds.</p>
-
-				<div class="flex flex-wrap gap-4">
-					<a href="/about" class="hover:text-primary">About</a>
-					<a href="/shipping" class="hover:text-primary">Shipping</a>
-					<a href="/returns" class="hover:text-primary">Returns</a>
-					<a href="/contact" class="hover:text-primary">Contact</a>
-				</div>
 			</div>
 		</div>
 	</footer>

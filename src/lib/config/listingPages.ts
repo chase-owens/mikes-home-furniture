@@ -58,6 +58,13 @@ export const listingPages = {
 		title: 'Office'
 	},
 
+	outdoor: {
+		description: 'Furniture to make the outdoors feel like an extension of your home',
+		href: '/rooms/outdoor',
+		label: 'Outdoor',
+		title: 'Outdoor'
+	},
+
 	rugs: {
 		description: 'Natural textures, muted patterns, and layers',
 		filter: (product: Product) => product.type === 'rug',
