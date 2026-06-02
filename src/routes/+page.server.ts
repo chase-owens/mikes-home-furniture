@@ -1,3 +1,5 @@
+import { error } from 'console';
+
 import { getContentUrl } from '$lib/content/getContentUrl';
 import rootContent from '$lib/data/root-content.json';
 import type { RootContent } from '$lib/models/hero';
@@ -17,13 +19,11 @@ export const load: PageServerLoad = async ({ fetch }) => {
 		const res = await fetch(getContentUrl('root-content.json'));
 
 		if (!res.ok) {
-			console.error(`Failed to fetch room content: ${res.status} ${res.statusText}`);
-			return fallbackContent;
+			throw error(500, 'Content failed to load');
 		}
 
 		return (await res.json()) as RootContent;
-	} catch (error) {
-		console.error('Failed to fetch room content. Falling back to local content.', error);
-		return fallbackContent;
+	} catch (err) {
+		throw error(500, 'Content failed to load', err);
 	}
 };

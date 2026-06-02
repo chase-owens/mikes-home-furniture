@@ -5,11 +5,14 @@
 	--color-background: #f5efe6;
 	--color-surface: #fbf7f1;
 	--color-primary: #6b4f3a;
-	--color-secondary: #a67c52;
+	--color-primary-foreground: #ffffff;
+	--color-secondary: #8a5f3d;
+	--color-secondary-foreground: #ffffff;
 	--color-accent: #c2a878;
-	--color-highlight: #d97a56;
+	--color-highlight: #9f4f34;
 	--color-border: #d8ccba;
 	--color-foreground: #2f2a26;
+	--color-muted: #5f554d;
 
 	--font-heading: 'Libre Baskerville', serif;
 	--font-body: 'Inter', system-ui, sans-serif;
