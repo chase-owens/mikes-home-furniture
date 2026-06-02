@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Product } from '$lib/data/products';
+	import type { Product } from '$lib/models/products';
 
 	const { name, description, price, id, images, type, material, canRent, status }: Product =
 		$props();

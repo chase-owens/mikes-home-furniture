@@ -1,7 +1,7 @@
 <script lang="ts">
 	import ProductCard from '../cards/ProductCard.svelte';
 
-	import type { Product } from '$lib/data/products';
+	import type { Product } from '$lib/models/products';
 	import { productsStore } from '$lib/stores/productsStore';
 	import { getProductsByFilterKey } from '$lib/utils/getProductsByFilterKey';
 	import CardGrid from '../layout/CardGrid.svelte';

@@ -1,6 +1,7 @@
 import { error } from '@sveltejs/kit';
 
 import { listingPages } from '$lib/config/listingPages';
+import type { Product } from '$lib/models/products';
 import { getProductsByFilterKey } from '$lib/utils/getProductsByFilterKey';
 
 import type { PageServerLoad } from '../$types';
@@ -13,7 +14,7 @@ export const load: PageServerLoad = async ({ parent }) => {
 		throw error(404, 'Listing not found');
 	}
 
-	const items = getProductsByFilterKey(products, 'sale');
+	const items = getProductsByFilterKey(products as unknown as Product[], 'sale');
 
 	return {
 		items,
