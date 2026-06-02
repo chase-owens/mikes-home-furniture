@@ -1,4 +1,4 @@
-import type { Product } from '$lib/data/products';
+import type { Product } from '$lib/models/products';
 
 export const listingPages = {
 	bedroom: {

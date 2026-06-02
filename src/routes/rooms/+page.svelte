@@ -1,10 +1,11 @@
 <script lang="ts">
 	import BackLink from '$lib/components/ui/BackLink.svelte';
 	import CategoryCard from '$lib/components/cards/CategoryCard.svelte';
-	import roomsData from '$lib/data/rooms.json';
 	import CardGrid from '$lib/components/layout/CardGrid.svelte';
 
-	const { rooms } = roomsData;
+	const { data } = $props();
+
+	const { rooms } = $derived(data);
 </script>
 
 <section class="space-y-6">

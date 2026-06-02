@@ -2,7 +2,7 @@
 	import BackLink from '../ui/BackLink.svelte';
 	import ProductCard from '../cards/ProductCard.svelte';
 	import CardGrid from './CardGrid.svelte';
-	import type { Product } from '$lib/data/products';
+	import type { Product } from '$lib/models/products';
 	import { filterProducts } from '$lib/utils/filterProducts';
 
 	type ListingPageProps = {
