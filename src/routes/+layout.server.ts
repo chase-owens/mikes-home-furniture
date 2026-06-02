@@ -1,6 +1,7 @@
 import { getContentUrl } from '$lib/content/getContentUrl';
 import type { Category } from '$lib/models/categories';
 import type { Product } from '$lib/models/products';
+import type { Sidebar } from '$lib/models/sideBar';
 
 import type { LayoutServerLoad } from './$types';
 
@@ -15,6 +16,8 @@ type ProductsResponse = {
 type RoomsResponse = {
 	rooms: Category[];
 };
+
+type SidebarResponse = Sidebar;
 
 export const prerender = true;
 
@@ -46,7 +49,7 @@ export const load: LayoutServerLoad = async ({ fetch }) => {
 		fetchJson<CategoriesResponse>(fetch, 'data/categories.json'),
 		fetchJson<ProductsResponse>(fetch, 'data/products.json'),
 		fetchJson<RoomsResponse>(fetch, 'data/rooms.json'),
-		fetchJson(fetch, 'data/side-bar.json')
+		fetchJson<SidebarResponse>(fetch, 'data/side-bar.json')
 	]);
 
 	return {
