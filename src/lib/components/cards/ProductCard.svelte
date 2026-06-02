@@ -48,10 +48,10 @@
 			</div>
 
 			{#if material}
-				<p class="text-foreground/65 text-sm">{material}</p>
+				<p class="text-foreground text-sm">{material}</p>
 			{/if}
 
-			<p class="text-foreground/75 text-sm leading-6">
+			<p class="text-foreground/85 text-sm leading-6">
 				{description}
 			</p>
 		</div>

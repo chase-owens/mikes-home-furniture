@@ -1,3 +1,5 @@
+import { error } from 'console';
+
 import { getContentUrl } from '$lib/content/getContentUrl';
 import type { Category } from '$lib/models/categories';
 import type { Product } from '$lib/models/products';
@@ -30,7 +32,7 @@ async function fetchJson<T>(fetch: typeof globalThis.fetch, path: string): Promi
 	if (!res.ok) {
 		const body = await res.text();
 
-		throw new Error(
+		throw error(
 			[
 				`Failed to fetch ${path}`,
 				`URL: ${url}`,
@@ -46,10 +48,10 @@ async function fetchJson<T>(fetch: typeof globalThis.fetch, path: string): Promi
 
 export const load: LayoutServerLoad = async ({ fetch }) => {
 	const [categories, products, rooms, sidebar] = await Promise.all([
-		fetchJson<CategoriesResponse>(fetch, 'data/categories.json'),
-		fetchJson<ProductsResponse>(fetch, 'data/products.json'),
-		fetchJson<RoomsResponse>(fetch, 'data/rooms.json'),
-		fetchJson<SidebarResponse>(fetch, 'data/side-bar.json')
+		fetchJson<CategoriesResponse>(fetch, '/categories.json'),
+		fetchJson<ProductsResponse>(fetch, '/products.json'),
+		fetchJson<RoomsResponse>(fetch, '/rooms.json'),
+		fetchJson<SidebarResponse>(fetch, '/side-bar.json')
 	]);
 
 	return {
