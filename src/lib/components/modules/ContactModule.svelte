@@ -2,7 +2,9 @@
 	import contactInfo from '$lib/data/contact-info.json';
 	import { getFacebookUrl } from '$lib/utils/getFacebookUrl';
 
-	const phoneHref = `tel:+${contactInfo.phoneNumber}`;
+	const phoneHref = `sms:${contactInfo.phoneNumber}?body=${encodeURIComponent(
+		'Hi Mike, I have a question about your furniture.'
+	)}`;
 	const metaUrl = getFacebookUrl(contactInfo.socials);
 
 	const { title, subTitle, description } = $props();
@@ -23,6 +25,12 @@
 		</div>
 
 		<div class="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-0">
+			<a
+				href={phoneHref}
+				class="rounded-vintage border-border bg-background text-text hover:bg-accent/20 border px-5 py-3 text-center text-sm font-medium transition"
+			>
+				Text Mike
+			</a>
 			{#if metaUrl}
 				<a
 					href={getFacebookUrl(contactInfo.socials)}
@@ -32,13 +40,6 @@
 				>
 					Message on Facebook
 				</a>{/if}
-
-			<a
-				href={phoneHref}
-				class="rounded-vintage border-border bg-background text-text hover:bg-accent/20 border px-5 py-3 text-center text-sm font-medium transition"
-			>
-				Call / Text Mike
-			</a>
 		</div>
 	</div>
 </section>
