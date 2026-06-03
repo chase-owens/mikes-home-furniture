@@ -5,35 +5,35 @@
       "label": "Living Room",
       "href": "/rooms/living-room",
       "description": "Sofas, recliners,coffee tables, storage, and accents",
-      "image": "/living-room-3.png"
+      "image": "/images/living-room-3.png"
     },
     {
       "slug": "bedroom",
       "label": "Bedroom",
       "href": "/rooms/bedroom",
       "description": "Beds, nightstands, dressers, and linens",
-      "image": "/bedroom.png"
+      "image": "/images/bedroom.png"
     },
     {
       "slug": "dining",
       "label": "Dining",
       "href": "/rooms/dining",
       "description": "Tables, chairs, bar carts, and serveware",
-      "image": "/kitchen.jpeg"
+      "image": "/images/kitchen.jpeg"
     },
     {
       "slug": "office",
       "label": "Home Office",
       "href": "/rooms/office",
       "description": "Desks, shelving, and lighting for workspaces",
-      "image": "/office.jpg"
+      "image": "/images/office.jpg"
     },
     {
       "slug": "outdoor",
       "label": "Outdoor",
       "href": "/rooms/outdoor",
       "description": "Furniture and accessories for outdoor living",
-      "image": "/outdoor.png"
+      "image": "/images/outdoor.png"
     }
   ]
 }

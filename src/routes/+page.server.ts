@@ -16,7 +16,7 @@ export const load: PageServerLoad = async ({ fetch }) => {
 	}
 
 	try {
-		const res = await fetch(getContentUrl('root-content.json'));
+		const res = await fetch(getContentUrl('/data/root-content.json'));
 
 		if (!res.ok) {
 			throw error(500, 'Content failed to load');
