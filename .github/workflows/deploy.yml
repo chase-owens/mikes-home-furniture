@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      AWS_REGION: us-east-1
+      AWS_REGION: us-east-2
       WEB_BUCKET: vinteeks-web-prod
       CLOUDFRONT_DISTRIBUTION_ID: EWGHSI60I7KOH
       PUBLIC_CONTENT_BASE_URL: https://d7r9an6gzs271.cloudfront.net
@@ -34,10 +34,6 @@ jobs:
 
       - name: Check
         run: npm run check --if-present
-
-      - name: Debug content base URL
-        run: |
-          echo "PUBLIC_CONTENT_BASE_URL=${PUBLIC_CONTENT_BASE_URL}"
 
       - name: Build
         run: npm run build

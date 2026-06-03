@@ -43,14 +43,7 @@ async function fetchJson<T>(fetch: typeof globalThis.fetch, path: string): Promi
 		);
 	}
 
-	const body = await res.text();
-
-	console.log('FETCH_JSON_URL:', url);
-	console.log('FETCH_JSON_STATUS:', res.status);
-	console.log('FETCH_JSON_CONTENT_TYPE:', contentType);
-	console.log('FETCH_JSON_PREVIEW:', body.slice(0, 200));
-
-	return JSON.parse(body) as T;
+	return (await res.json()) as T;
 }
 
 export const load: LayoutServerLoad = async ({ fetch }) => {
