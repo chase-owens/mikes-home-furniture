@@ -17,7 +17,7 @@ jobs:
       AWS_REGION: us-east-1
       WEB_BUCKET: vinteeks-web-prod
       CLOUDFRONT_DISTRIBUTION_ID: EWGHSI60I7KOH
-      PUBLIC_CONTENT_BASE_URL: ${{ secrets.PUBLIC_CONTENT_BASE_URL }}
+      PUBLIC_CONTENT_BASE_URL: https://d7r9an6gzs271.cloudfront.net
 
     steps:
       - name: Checkout
