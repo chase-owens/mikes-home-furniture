@@ -32,9 +32,11 @@ jobs:
         run: npm ci
 
       - name: Check
+        env: PUBLIC_CONTENT_BASE_URL: ${{ secrets.PUBLIC_CONTENT_BASE_URL }}
         run: npm run check --if-present
 
       - name: Build
+        env: PUBLIC_CONTENT_BASE_URL: ${{ secrets.PUBLIC_CONTENT_BASE_URL }}
         run: npm run build
 
       - name: Configure AWS credentials
