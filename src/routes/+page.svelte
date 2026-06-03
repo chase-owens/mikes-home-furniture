@@ -1,6 +1,4 @@
 <script lang="ts">
-	import '../app.css';
-
 	import HomepageHero from '$lib/components/layout/HomepageHero.svelte';
 	import ModuleRenderer from '$lib/components/layout/ModuleRenderer.svelte';
 
