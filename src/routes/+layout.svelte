@@ -6,8 +6,6 @@
 	import { afterNavigate } from '$app/navigation';
 	import { navigationStack } from '$lib/stores/navigationStack';
 
-	import { productsStore } from '$lib/stores/productsStore.js';
-
 	afterNavigate(({ to }) => {
 		if (!to) {
 			return;
@@ -32,9 +30,6 @@
 	});
 
 	let { children, data } = $props();
-
-	// svelte-ignore state_referenced_locally
-	productsStore.set(data.products);
 </script>
 
 <svelte:head>
@@ -45,4 +40,3 @@
 </svelte:head>
 
 <AppShell {...data.sidebar}>{@render children()}</AppShell>
-s

@@ -1,7 +1,9 @@
 <script lang="ts">
 	import ListingPage from '$lib/components/layout/ListingPage.svelte';
 
-	const { data } = $props();
+	import type { PageData } from './$types';
+
+	const { data }: { data: PageData } = $props();
 </script>
 
 <ListingPage {...data} />

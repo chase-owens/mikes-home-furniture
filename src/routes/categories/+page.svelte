@@ -2,8 +2,9 @@
 	import BackLink from '$lib/components/ui/BackLink.svelte';
 	import CategoryCard from '$lib/components/cards/CategoryCard.svelte';
 	import CardGrid from '$lib/components/layout/CardGrid.svelte';
+	import type { PageData } from './$types';
 
-	const { data } = $props();
+	const { data }: { data: PageData } = $props();
 </script>
 
 <section class="space-y-6">

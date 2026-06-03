@@ -1,32 +1,22 @@
 <script lang="ts">
-	import { page } from '$app/state';
 	import BackLink from '$lib/components/ui/BackLink.svelte';
 	import Contact from '$lib/components/ui/Contact.svelte';
 	import ProductCard from '$lib/components/cards/ProductCard.svelte';
-	import { productsStore } from '$lib/stores/productsStore';
 	import CardGrid from '$lib/components/layout/CardGrid.svelte';
+	import type { PageData } from './$types';
 
-	const productId = $derived(page.params.productId);
-
-	const product = $derived($productsStore.find((item) => item.id === productId));
+	const { data }: { data: PageData } = $props();
+	const { product, relatedProducts } = $derived(data);
 
 	let selectedImage = $state<string | undefined>(undefined);
 
 	$effect(() => {
-		selectedImage = product?.images?.[0];
+		selectedImage = product.images[0];
 	});
 
 	const setSelectedImage = (index: number) => {
-		selectedImage = product?.images[index];
+		selectedImage = product.images[index];
 	};
-
-	const relatedProducts = $derived(
-		product
-			? $productsStore
-					.filter((item) => item.room === product.room && item.id !== product.id)
-					.slice(0, 3)
-			: []
-	);
 </script>
 
 {#if product}
