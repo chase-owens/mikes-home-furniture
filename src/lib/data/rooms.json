@@ -1,7 +1,7 @@
 {
   "rooms": [
     {
-      "slug": "'living-room",
+      "slug": "living-room",
       "label": "Living Room",
       "href": "/rooms/living-room",
       "description": "Sofas, recliners,coffee tables, storage, and accents",
