@@ -4,6 +4,7 @@
 	const { name, description, price, id, images, type, material, canRent, status }: Product =
 		$props();
 	const href = $derived(`/products/${id}`);
+	const isAvailableToRent = $derived(canRent && status === 'available');
 </script>
 
 <article
@@ -37,7 +38,7 @@
 					<h2 class="text-lg leading-snug">
 						{name}
 					</h2>
-					{#if canRent && status === 'available'}
+					{#if isAvailableToRent}
 						<p class=" bg-accent w-fit px-2 py-0.5 text-sm">Available for rent</p>
 					{/if}
 				</div>

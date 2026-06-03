@@ -7,7 +7,7 @@
 	import ProductListingModule from '../modules/ProductListingModule.svelte';
 	import StepsModule from '../modules/StepsModule.svelte';
 
-	const { modules } = $props();
+	const { modules, products } = $props();
 
 	const componentMap: Record<string, Component<any>> = {
 		cardList: CategoriesListingModule,
@@ -23,7 +23,7 @@
 	{#each modules as module}
 		{@const Module = componentMap[module.type]}
 		{#if Module}
-			<Module {...module} />
+			<Module {...module} {products} />
 		{:else}
 			<div>unknown block</div>
 		{/if}

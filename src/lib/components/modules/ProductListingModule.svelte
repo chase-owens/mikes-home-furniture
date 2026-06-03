@@ -2,13 +2,12 @@
 	import ProductCard from '../cards/ProductCard.svelte';
 
 	import type { Product } from '$lib/models/products';
-	import { productsStore } from '$lib/stores/productsStore';
 	import { getProductsByFilterKey } from '$lib/utils/getProductsByFilterKey';
 	import CardGrid from '../layout/CardGrid.svelte';
 
-	const { title, subTitle, productType } = $props();
+	const { title, subTitle, productType, products } = $props();
 
-	const moduleProducts: Product[] = $derived(getProductsByFilterKey($productsStore, productType));
+	const moduleProducts: Product[] = $derived(getProductsByFilterKey(products, productType));
 </script>
 
 <section class="space-y-4">

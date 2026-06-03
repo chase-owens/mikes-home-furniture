@@ -33,7 +33,11 @@
 					onclick={() => (isMenuOpen = !isMenuOpen)}
 					class="border-border bg-background text-foreground hover:bg-surface inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border transition"
 				>
-					<img src={isMenuOpen ? closeIcon : menuIcon} alt="" class="h-5 w-5" />
+					<img
+						src={isMenuOpen ? closeIcon : menuIcon}
+						alt={isMenuOpen ? 'Close menu' : 'Open menu'}
+						class="h-5 w-5"
+					/>
 				</button>
 			</div>
 
