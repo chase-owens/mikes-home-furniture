@@ -26,7 +26,7 @@
       "label": "Sale",
       "href": "/sale",
       "description": "Limited quantities and seasonal markdowns",
-      "image": "images//mikes-hero.jpeg"
+      "image": "/images/mikes-hero.jpeg"
     }
   ]
 }
