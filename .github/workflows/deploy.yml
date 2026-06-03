@@ -35,6 +35,10 @@ jobs:
       - name: Check
         run: npm run check --if-present
 
+      - name: Debug content base URL
+        run: |
+          echo "PUBLIC_CONTENT_BASE_URL=${PUBLIC_CONTENT_BASE_URL}"
+
       - name: Build
         run: npm run build
 
