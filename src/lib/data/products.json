@@ -7,8 +7,8 @@
       "description": "A relaxed sofa with a soft silhouette and grounded profile.",
       "id": "linen-sofa-01",
       "images": [
-        "/sofa-hawthorne.jpg",
-        "/floor-lamp.jpeg"
+        "/images/sofa-hawthorne.jpg",
+        "/images/floor-lamp.jpeg"
       ],
       "isFeatured": true,
       "material": "Linen blend",
@@ -32,7 +32,7 @@
       "condition": "Good",
       "room": "living-room",
       "images": [
-        "/sofa-hawthorne.jpg"
+        "/images/sofa-hawthorne.jpg"
       ],
       "material": "Solid oak",
       "description": "Warm wood grain and a timeless shape for everyday living.",
@@ -52,7 +52,7 @@
       "category": "chairs",
       "room": "living-room",
       "images": [
-        "/living-room.jpeg"
+        "/images/living-room.jpeg"
       ],
       "material": "Textured upholstery",
       "description": "A comfortable accent chair designed for quieter corners.",
@@ -70,7 +70,7 @@
       "category": "storage",
       "room": "living-room",
       "images": [
-        "/bedroom.png"
+        "/images/bedroom.png"
       ],
       "material": "Oak veneer",
       "description": "Slim storage with a collected, understated feel.",
@@ -91,7 +91,7 @@
       "isSale": true,
       "room": "bedroom",
       "images": [
-        "/lamp.png"
+        "/images/lamp.png"
       ],
       "material": "Brass finish",
       "description": "A warm metallic accent for layered evening lighting.",
@@ -105,7 +105,7 @@
       "category": "rugs",
       "room": "living-room",
       "images": [
-        "/rug.png"
+        "/images/rug.png"
       ],
       "material": "Wool blend",
       "description": "Soft texture and muted pattern to ground the room.",
