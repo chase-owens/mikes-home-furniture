@@ -5,6 +5,8 @@ import { getProductsByFilterKey } from '$lib/utils/getProductsByFilterKey';
 
 import type { PageServerLoad } from './$types';
 
+export const prerender = true;
+
 export const load: PageServerLoad = async ({ parent, params }) => {
 	const { title } = listingPages[params.categoryId as keyof typeof listingPages];
 	const { products } = await parent();
