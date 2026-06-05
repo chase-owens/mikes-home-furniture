@@ -6,15 +6,15 @@ export const load: PageServerLoad = async ({ params, parent }) => {
 	const { products } = await parent();
 	const { productId } = params;
 
-	const product = products.find((p) => p.id === productId);
+	const product = products.find(({ id }) => id === productId);
 
 	if (!product) {
 		throw error(404, 'Product not found');
 	}
 
-	const relatedProducts = product
-		? products.filter((item) => item.room === product.room && item.id !== product.id).slice(0, 3)
-		: [];
+	const relatedProducts = products
+		.filter(({ room, id }) => room === product.room && id !== product.id)
+		.slice(0, 3);
 
 	return {
 		product,
