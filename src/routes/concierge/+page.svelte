@@ -2,7 +2,7 @@
 	import ContactForm from '$lib/components/ui/ContactForm.svelte';
 </script>
 
-<section class="space-y-8">
+<div class="space-y-8">
 	<div>
 		<h2 class="mt-2 text-2xl sm:text-3xl">Furniture Concierge</h2>
 		<p class="text-muted mt-4 text-lg">
@@ -28,4 +28,4 @@
 		</div>
 	</div>
 	<ContactForm />
-</section>
+</div>
