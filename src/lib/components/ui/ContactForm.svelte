@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { PUBLIC_CONTACT_API_URL } from '$env/static/public';
+	import { PUBLIC_UPLOAD_URL_API, PUBLIC_CONTACT_API_URL } from '$env/static/public';
 	type BudgetRange = 'under-250' | '250-500' | '500-1000' | '1000-2000' | '2000-plus';
 
 	type ProductInquiryFormData = {
@@ -10,12 +10,15 @@
 		name: string;
 		email?: string;
 		phone?: string;
+		photos?: File[];
 		preferredContact: 'call' | 'email' | 'text';
 		generalArea?: string;
 		message?: string;
 	};
 
 	const { productId }: { productId?: string } = $props();
+
+	let selectedFiles = $state<File[]>([]);
 
 	let formData: ProductInquiryFormData = $state({
 		categoryId: undefined,
@@ -24,6 +27,7 @@
 		name: '',
 		email: '',
 		phone: '',
+		photos: undefined,
 		preferredContact: 'text',
 		generalArea: '',
 		message: ''
@@ -50,13 +54,53 @@
 		submitError = '';
 		isSuccess = false;
 
+		const inquiryId = crypto.randomUUID();
+		const imageKeys: string[] = [];
+
 		try {
+			if (selectedFiles.length) {
+				for (const file of selectedFiles) {
+					console.log(PUBLIC_UPLOAD_URL_API, file.name);
+					const uploadUrlResponse = await fetch(PUBLIC_UPLOAD_URL_API, {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify({
+							inquiryId,
+							fileName: file.name,
+							contentType: file.type
+						})
+					});
+
+					if (!uploadUrlResponse.ok) {
+						throw new Error('Failed to create image upload URL');
+					}
+
+					const { uploadUrl, key } = await uploadUrlResponse.json();
+
+					const uploadResponse = await fetch(uploadUrl, {
+						method: 'PUT',
+						headers: {
+							'Content-Type': file.type
+						},
+						body: file
+					});
+
+					if (!uploadResponse.ok) {
+						throw new Error('Failed to upload image');
+					}
+
+					imageKeys.push(key);
+				}
+			}
+
 			const response = await fetch(PUBLIC_CONTACT_API_URL, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
 				},
-				body: JSON.stringify(formData)
+				body: JSON.stringify({ ...formData, id: inquiryId, inquiryId, imageKeys })
 			});
 
 			if (!response.ok) {
@@ -226,6 +270,34 @@
 			placeholder="Ask about availability, delivery, dimensions, or anything else."
 			class="border-border bg-background text-foreground rounded-vintage focus:border-primary focus:ring-primary/20 min-h-32 resize-y border px-4 py-3 text-sm outline-none focus:ring-2"
 		></textarea>
+	</div>
+
+	<div class="flex flex-col gap-2">
+		<label for="images" class="text-foreground text-sm font-medium"> Reference Photos </label>
+
+		<p class="text-muted text-xs">
+			Upload photos of furniture, rooms, Pinterest inspiration, marketplace listings, or anything
+			that helps us understand what you're looking for.
+		</p>
+
+		<input
+			id="images"
+			type="file"
+			accept="image/jpeg,image/png,image/webp"
+			multiple
+			onchange={(e) => {
+				selectedFiles = Array.from((e.currentTarget as HTMLInputElement).files ?? []);
+			}}
+			class="border-border bg-background rounded-vintage border px-4 py-3 text-sm"
+		/>
+
+		{#if selectedFiles.length}
+			<ul class="text-muted text-xs">
+				{#each selectedFiles as file}
+					<li>{file.name}</li>
+				{/each}
+			</ul>
+		{/if}
 	</div>
 
 	{#if submitError}
