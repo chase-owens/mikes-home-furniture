@@ -139,6 +139,7 @@
 					>Furniture Category</label
 				>
 				<select
+					id="categoryId"
 					name="categoryId"
 					bind:value={formData.categoryId}
 					class="border-border bg-background text-foreground rounded-vintage focus:border-primary focus:ring-primary/20 h-10 border px-4 py-3 text-sm outline-none focus:ring-2"
@@ -157,6 +158,7 @@
 			<div class="flex flex-col gap-2">
 				<label for="categoryId" class="text-foreground text-sm font-medium">Room</label>
 				<select
+					id="roomId"
 					name="roomId"
 					bind:value={formData.roomId}
 					class="border-border bg-background text-foreground rounded-vintage focus:border-primary focus:ring-primary/20 h-10 border px-4 py-3 text-sm outline-none focus:ring-2"
@@ -174,6 +176,7 @@
 			<div class="flex flex-col gap-2">
 				<label for="budget" class="text-foreground text-sm font-medium">Budget</label>
 				<select
+					id="budget"
 					name="budget"
 					bind:value={formData.budget}
 					class="border-border bg-background text-foreground rounded-vintage focus:border-primary focus:ring-primary/20 h-10 border px-4 py-3 text-sm outline-none focus:ring-2"
