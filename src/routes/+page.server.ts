@@ -8,8 +8,6 @@ import type { PageServerLoad } from './$types';
 
 const fallbackContent = rootContent as unknown as RootContent;
 
-export const prerender = true;
-
 export const load: PageServerLoad = async ({ fetch }) => {
 	if (import.meta.env.VITE_IS_MOCK === 'true') {
 		return fallbackContent;

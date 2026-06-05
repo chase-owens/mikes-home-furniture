@@ -36,5 +36,10 @@
 		"typescript": "^6.0.2",
 		"typescript-eslint": "^8.58.1",
 		"vite": "^8.0.7"
+	},
+	"dependencies": {
+		"@aws-sdk/client-dynamodb": "^3.1062.0",
+		"@aws-sdk/lib-dynamodb": "^3.1061.0",
+		"zod": "^4.4.3"
 	}
 }
