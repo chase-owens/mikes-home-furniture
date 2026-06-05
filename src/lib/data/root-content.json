@@ -1,25 +1,19 @@
 {
   "hero": {
-    "image": "/images/living-room-2.png",
-    "title": "Local furniture. Fair prices. Fresh finds.",
-    "subTitle": "Quality furniture, minus the markup.",
-    "description": "Create a living space that feels collected, comfortable, and quietly refined.",
+    "image": "/images/living-room-4.jpg",
+    "title": "Curated furniture. Sourced for you",
+    "subTitle": "Find the perfect piece, even if we don't have it yet.",
+    "description": "Browse our current inventory, request specific pieces, or let us source furniture that matches your style, space, and budget.",
     "ctas": [
       {
-        "href": "/categories",
-        "title": "Browse Categories",
+        "href": "/shop",
+        "title": "Browse Inventory",
         "type": "default",
         "variant": "primary"
       },
       {
-        "href": "/shop",
-        "title": "Browse All",
-        "type": "default",
-        "variant": "secondary"
-      },
-      {
-        "href": "/rooms",
-        "title": "Browse by Room",
+        "href": "/concierge",
+        "title": "Request a Piece",
         "type": "default",
         "variant": "secondary"
       }
@@ -28,18 +22,18 @@
   "modules": [
     {
       "title": "How It Works",
-      "subTitle": "Simple, fast, and local.",
+      "subTitle": "Furniture shopping without the hunt.",
       "steps": [
         {
-          "description": "Browse available furniture",
+          "description": "Browse inventory or tell us what you're looking for",
           "title": "Step 1"
         },
         {
-          "description": "Message or call Mike to reserve it",
+          "description": "We'll recommend available pieces or source options for you",
           "title": "Step 2"
         },
         {
-          "description": "Pick up locally or ask about delivery",
+          "description": "Reserve your favorite and arrange pickup or delivery",
           "title": "Step 3"
         }
       ],

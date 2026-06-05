@@ -1,12 +1,14 @@
 <script lang="ts">
 	import BackLink from '$lib/components/ui/BackLink.svelte';
-	import Contact from '$lib/components/ui/Contact.svelte';
+	import ProductInquiryModal from '$lib/components/ui/ProductInquiryModal.svelte';
 	import ProductCard from '$lib/components/cards/ProductCard.svelte';
 	import CardGrid from '$lib/components/layout/CardGrid.svelte';
 	import type { PageData } from './$types';
 
 	const { data }: { data: PageData } = $props();
 	const { product, relatedProducts } = $derived(data);
+
+	let isInquiryOpen = $state(false);
 
 	let selectedImage = $state<string | undefined>(undefined);
 
@@ -83,7 +85,16 @@
 				</p>
 
 				<div class="mt-6">
-					<Contact marketplaceUrl={product.marketplaceUrl} productName={product.name} />
+					<button
+						type="button"
+						onclick={() => (isInquiryOpen = true)}
+						class="bg-primary text-surface rounded-vintage hover:bg-highlight shadow-soft px-5 py-3 text-sm font-medium transition"
+					>
+						Ask About This Item
+					</button>
+					{#if isInquiryOpen}
+						<ProductInquiryModal {product} onClose={() => (isInquiryOpen = false)} />
+					{/if}
 				</div>
 			</div>
 		</div>

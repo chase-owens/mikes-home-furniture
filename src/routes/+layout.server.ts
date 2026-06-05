@@ -21,8 +21,6 @@ type RoomsResponse = {
 
 type SidebarResponse = Sidebar;
 
-export const prerender = true;
-
 async function fetchJson<T>(fetch: typeof globalThis.fetch, path: string): Promise<T> {
 	const url = getContentUrl(path);
 	const res = await fetch(url);

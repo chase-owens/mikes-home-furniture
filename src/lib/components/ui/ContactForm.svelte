@@ -1,0 +1,224 @@
+<script lang="ts">
+	type BudgetRange = 'under-250' | '250-500' | '500-1000' | '1000-2000' | '2000-plus';
+
+	type ProductInquiryFormData = {
+		budget?: BudgetRange;
+		categoryId?: string;
+		roomId?: string;
+		productId?: string;
+		name: string;
+		email?: string;
+		phone?: string;
+		preferredContact: 'call' | 'email' | 'text';
+		generalArea?: string;
+		message?: string;
+	};
+
+	const { productId }: { productId?: string } = $props();
+
+	let formData: ProductInquiryFormData = $state({
+		categoryId: undefined,
+		roomId: undefined,
+		productId: undefined,
+		name: '',
+		email: '',
+		phone: '',
+		preferredContact: 'text',
+		generalArea: '',
+		message: ''
+	});
+
+	$effect(() => {
+		formData.productId = productId;
+	});
+
+	const isPhoneRequired = $derived(
+		formData.preferredContact === 'call' || formData.preferredContact === 'text'
+	);
+
+	const isEmailRequired = $derived(formData.preferredContact === 'email');
+
+	let isSubmitting = $state(false);
+	let submitError = $state('');
+	let isSuccess = $state(false);
+
+	async function handleSubmit(event: SubmitEvent) {
+		event.preventDefault();
+
+		console.log('Submitting contact request:', JSON.stringify(formData, null, 2));
+
+		isSuccess = true;
+	}
+
+	const isSpecificProductInquiry = $derived(!!formData.productId);
+</script>
+
+<form
+	action="/api/inquiry"
+	method="POST"
+	onsubmit={handleSubmit}
+	class="border-border bg-surface shadow-soft rounded-vintage flex flex-col gap-5 border p-6"
+>
+	{#if isSpecificProductInquiry}
+		<input type="hidden" name="productId" value={productId} />
+	{/if}
+
+	<div class="flex flex-col gap-2">
+		<label for="name" class="text-foreground text-sm font-medium"
+			>Name <span class="text-highlight">*</span></label
+		>
+		<input
+			id="name"
+			name="name"
+			required
+			bind:value={formData.name}
+			class="border-border bg-background text-foreground rounded-vintage focus:border-primary focus:ring-primary/20 border px-4 py-3 text-sm outline-none focus:ring-2"
+		/>
+	</div>
+
+	<fieldset class="flex flex-col gap-3">
+		<legend class="text-foreground text-sm font-medium">Preferred contact method</legend>
+
+		<div class="grid grid-cols-3 gap-4">
+			{#each ['text', 'call', 'email'] as method}
+				<label
+					class="border-border bg-background rounded-vintage has-checked:border-primary has-checked:bg-primary flex cursor-pointer items-center justify-center gap-2 border px-3 py-3 text-sm capitalize transition has-[:checked]:text-white"
+				>
+					<input
+						type="radio"
+						name="preferredContact"
+						value={method}
+						bind:group={formData.preferredContact}
+						class="sr-only"
+					/>
+					{method}
+				</label>
+			{/each}
+		</div>
+	</fieldset>
+
+	<div class="grid gap-4 sm:grid-cols-2">
+		<div class="flex flex-col gap-2">
+			<label for="email" class="text-foreground text-sm font-medium"
+				>Email
+				{#if isEmailRequired}
+					<span class="text-highlight">*</span>
+				{/if}
+			</label>
+			<input
+				id="email"
+				name="email"
+				type="email"
+				required={isEmailRequired}
+				bind:value={formData.email}
+				class="border-border bg-background text-foreground rounded-vintage focus:border-primary focus:ring-primary/20 border px-4 py-3 text-sm outline-none focus:ring-2"
+			/>
+		</div>
+
+		<div class="flex flex-col gap-2">
+			<label for="phone" class="text-foreground text-sm font-medium"
+				>Phone {#if isPhoneRequired}
+					<span class="text-highlight">*</span>
+				{/if}</label
+			>
+			<input
+				id="phone"
+				name="phone"
+				type="tel"
+				required={isPhoneRequired}
+				bind:value={formData.phone}
+				class="border-border bg-background text-foreground rounded-vintage focus:border-primary focus:ring-primary/20 border px-4 py-3 text-sm outline-none focus:ring-2"
+			/>
+		</div>
+	</div>
+
+	{#if !isSpecificProductInquiry}
+		<div class="grid gap-4 sm:grid-cols-3">
+			<div class="flex flex-col gap-2">
+				<label for="categoryId" class="text-foreground text-sm font-medium"
+					>Furniture Category</label
+				>
+				<select
+					name="categoryId"
+					bind:value={formData.categoryId}
+					class="border-border bg-background text-foreground rounded-vintage focus:border-primary focus:ring-primary/20 h-10 border px-4 py-3 text-sm outline-none focus:ring-2"
+				>
+					<option value="" disabled selected>Category </option>
+					<option value="chairs">Chairs</option>
+					<option value="tables">Tables</option>
+					<option value="storage">Storage</option>
+					<option value="lighting">Lighting</option>
+					<option value="outdoor">Outdoor</option>
+					<option value="decor">Decor</option>
+					<option value="other">Other</option>
+				</select>
+			</div>
+
+			<div class="flex flex-col gap-2">
+				<label for="categoryId" class="text-foreground text-sm font-medium">Room</label>
+				<select
+					name="roomId"
+					bind:value={formData.roomId}
+					class="border-border bg-background text-foreground rounded-vintage focus:border-primary focus:ring-primary/20 h-10 border px-4 py-3 text-sm outline-none focus:ring-2"
+				>
+					<option value="" disabled selected>Room </option>
+					<option value="living-room">Living Room</option>
+					<option value="dining-room">Dining Room</option>
+					<option value="bedroom">Bedroom</option>
+					<option value="office">Office</option>
+					<option value="outdoor">Outdoor</option>
+					<option value="other">Other</option>
+				</select>
+			</div>
+
+			<div class="flex flex-col gap-2">
+				<label for="budget" class="text-foreground text-sm font-medium">Budget</label>
+				<select
+					name="budget"
+					bind:value={formData.budget}
+					class="border-border bg-background text-foreground rounded-vintage focus:border-primary focus:ring-primary/20 h-10 border px-4 py-3 text-sm outline-none focus:ring-2"
+				>
+					<option value="" disabled selected>Not sure yet </option>
+					<option value="under-250">Under $250 </option>d
+					<option value="$250-$500">$250 - $500</option>
+					<option value="$$500-$1000">$$500 - $1000</option>
+					<option value="$1000-$2000">$1000 - $2000</option>
+					<option value="$2000-plus">$2000+</option>
+				</select>
+			</div>
+		</div>
+	{/if}
+
+	<div class="flex flex-col gap-2">
+		<label for="message" class="text-foreground text-sm font-medium"
+			>Tell us what you're looking for</label
+		>
+		<textarea
+			id="message"
+			name="message"
+			minlength="10"
+			bind:value={formData.message}
+			placeholder="Ask about availability, delivery, dimensions, or anything else."
+			class="border-border bg-background text-foreground rounded-vintage focus:border-primary focus:ring-primary/20 min-h-32 resize-y border px-4 py-3 text-sm outline-none focus:ring-2"
+		></textarea>
+	</div>
+
+	{#if submitError}
+		<p class="text-sm text-red-700">{submitError}</p>
+	{/if}
+
+	{#if isSuccess}
+		<p class="text-primary text-sm font-medium">
+			We'll review your request and reach out with recommendations, availability, and sourcing
+			options.
+		</p>
+	{/if}
+
+	<button
+		type="submit"
+		disabled={isSubmitting}
+		class="bg-primary text-surface rounded-vintage hover:bg-highlight shadow-soft px-5 py-3 text-sm font-medium transition"
+	>
+		{isSubmitting ? 'Sending request...' : 'Send request'}
+	</button>
+</form>
