@@ -1,8 +1,11 @@
 <script lang="ts">
 	import ContactForm from '$lib/components/ui/ContactForm.svelte';
+	import { PUBLIC_CONTENT_BASE_URL } from '$env/static/public';
+
+	const conciergeImage = `${PUBLIC_CONTENT_BASE_URL}/images/concierge-photo.jpg.webp`;
 </script>
 
-<div class="space-y-8">
+<section class="space-y-8">
 	<div>
 		<h2 class="mt-2 text-2xl sm:text-3xl">Furniture Concierge</h2>
 		<p class="text-muted mt-4 text-lg">
@@ -11,7 +14,7 @@
 		</p>
 	</div>
 	<div class="grid items-stretch gap-8 lg:grid-cols-2">
-		<img src="/images/concierge-photo.jpg.webp" alt="curated living room" />
+		<img src={conciergeImage} alt="curated living room" />
 		<div
 			class="border-border bg-surface rounded-vintage flex h-full flex-col justify-center border p-6"
 		>
@@ -28,4 +31,4 @@
 		</div>
 	</div>
 	<ContactForm />
-</div>
+</section>
