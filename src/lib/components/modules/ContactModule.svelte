@@ -1,45 +1,7 @@
 <script lang="ts">
-	import contactInfo from '$lib/data/contact-info.json';
-	import { getFacebookUrl } from '$lib/utils/getFacebookUrl';
-
-	const phoneHref = `sms:${contactInfo.phoneNumber}?body=${encodeURIComponent(
-		'Hi Mike, I have a question about your furniture.'
-	)}`;
-	const metaUrl = getFacebookUrl(contactInfo.socials);
-
-	const { title, subTitle, description } = $props();
+	import ContactForm from '../ui/ContactForm.svelte';
 </script>
 
 <section>
-	<div
-		class="rounded-vintage border-border bg-surface shadow-soft border p-6 sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8"
-	>
-		<div class="max-w-2xl">
-			<p class="text-highlight mb-2 text-xs font-medium tracking-[0.25em] uppercase sm:text-sm">
-				{title}
-			</p>
-			<h2 class="text-text text-2xl sm:text-3xl">{subTitle}</h2>
-			<p class="text-muted mt-4 text-sm leading-7 sm:text-base">
-				{description}
-			</p>
-		</div>
-
-		<div class="mt-6 flex flex-col gap-3 sm:flex-row lg:mt-0">
-			<a
-				href={phoneHref}
-				class="rounded-vintage border-border bg-background text-text hover:bg-accent/20 border px-5 py-3 text-center text-sm font-medium transition"
-			>
-				Text Mike
-			</a>
-			{#if metaUrl}
-				<a
-					href={getFacebookUrl(contactInfo.socials)}
-					target="_blank"
-					rel="noreferrer"
-					class="rounded-vintage bg-primary shadow-soft px-5 py-3 text-center text-sm font-medium text-white transition hover:opacity-90"
-				>
-					Message on Facebook
-				</a>{/if}
-		</div>
-	</div>
+	<ContactForm />
 </section>
