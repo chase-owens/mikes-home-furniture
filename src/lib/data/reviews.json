@@ -1,0 +1,100 @@
+{
+  "reviews": [
+    {
+      "id": "jonathan-2025-09-27",
+      "name": "Jonathan",
+      "rating": 5,
+      "date": "2025-09-27",
+      "featured": true,
+      "tags": [
+        "treasure-finds",
+        "fair-pricing"
+      ],
+      "text": "Mike was a super cool guy to meet! He puts in a lot of work finding treasures and offering them at a very fair price. Awesome seller."
+    },
+    {
+      "id": "rebecca-2025-12-30",
+      "name": "Rebecca",
+      "rating": 5,
+      "date": "2025-12-30",
+      "featured": true,
+      "tags": [
+        "vintage-finds",
+        "delivery",
+        "fair-pricing"
+      ],
+      "text": "Can I give 100 stars? Mike was incredible. I misjudged the capacity of my little Camry and Mike saved the day by delivering close by to my home. These nightstands are some vintage beauties. Mike has excellent taste and is fair with pricing his treasures. Willing to negotiate and was an overall joy to exchange with. Highly recommend."
+    },
+    {
+      "id": "christine-2026-03-05",
+      "name": "Christine",
+      "rating": 5,
+      "date": "2026-03-05",
+      "featured": true,
+      "tags": [
+        "repeat-buyer",
+        "honest-description"
+      ],
+      "text": "Great seller! I will be checking his listings everyday. I found him to be friendly, helpful in response to my questions, and honest to point out any defects in a product."
+    },
+    {
+      "id": "hina-2025-12-23",
+      "name": "Hina",
+      "rating": 5,
+      "date": "2025-12-23",
+      "tags": [
+        "vintage-pieces"
+      ],
+      "text": "Great experience buying from Mike. Very pleasant individual. I look forward to purchasing more vintage pieces."
+    },
+    {
+      "id": "craig-1",
+      "name": "Craig",
+      "rating": 5,
+      "date": "2025-12-26",
+      "text": "Purchase was exactly as described. Great communication. I highly recommend this seller."
+    },
+    {
+      "id": "rajan-1",
+      "name": "Rajan",
+      "rating": 5,
+      "date": "2026-02-24",
+      "text": "Quick responses and a great piece of furniture at a great price."
+    },
+    {
+      "id": "rebecca-2",
+      "name": "Rebecca",
+      "rating": 5,
+      "date": "2026-02-08",
+      "text": "Mike is always top notch!"
+    },
+    {
+      "id": "eric-1",
+      "name": "Eric",
+      "rating": 5,
+      "date": "2026-01-08",
+      "text": "Honest and punctual."
+    },
+    {
+      "id": "natalie-1",
+      "name": "Natalie",
+      "rating": 5,
+      "date": "2026-03-05",
+      "text": "Perfect transaction from start to finish. Fair negotiating, items as described, and on-time convenient meet-up. Would do business with him again."
+    },
+    {
+      "id": "afeefa-1",
+      "name": "Afeefa",
+      "rating": 5,
+      "date": "2026-03-22",
+      "text": "Mike was the most helpful and kind person. He solved my dilemma with the product and made the process easy. I can't recommend him enough."
+    },
+    {
+      "id": "dave-1",
+      "name": "Dave",
+      "rating": 5,
+      "date": "2026-03-14",
+      "text": "Exactly as described. Great communication. Pickup was quick and easy."
+    }
+  ]
+}

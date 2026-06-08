@@ -1,5 +1,6 @@
 <script lang="ts">
 	import HomepageHero from '$lib/components/layout/HomepageHero.svelte';
+	import ReviewList from '$lib/components/layout/ReviewList.svelte';
 	import TreasureHuntModule from '$lib/components/layout/TreasureHuntModule.svelte';
 	import StepsModule from '$lib/components/modules/StepsModule.svelte';
 	import StartTheHunt from '$lib/components/ui/StartTheHunt.svelte';
@@ -12,7 +13,7 @@
 
 	const { data }: { data: HomePageData } = $props();
 
-	const { hero, modules, products, treasureHunt, treasureHuntItems } = $derived(data);
+	const { hero, reviews, treasureHunt, treasureHuntItems } = $derived(data);
 </script>
 
 <div class="flex flex-col gap-12">
@@ -20,4 +21,5 @@
 	<StepsModule />
 	<TreasureHuntModule {...treasureHunt} {treasureHuntItems} />
 	<StartTheHunt />
+	<ReviewList reviews={reviews.filter(({ featured }) => featured)} showCta />
 </div>

@@ -5,6 +5,7 @@ export function getBackLabel(backTarget: string) {
 	const isTargetProductPage = backTarget.startsWith('/products/');
 	const isTargetRoomsPage = backTarget === '/rooms';
 	const isTargetShopPage = backTarget === '/shop';
+	const isTargetTreasurePage = backTarget === '/treasure-hunt';
 
 	const categoryId = backTarget.split('/').at(-1) ?? '';
 
@@ -12,6 +13,10 @@ export function getBackLabel(backTarget: string) {
 
 	if (isTargetRoomsPage) {
 		return 'Return to Rooms';
+	}
+
+	if (isTargetTreasurePage) {
+		return 'Return to Previous Furniture Finds';
 	}
 
 	if (fromCategory) {

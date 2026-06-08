@@ -8,7 +8,7 @@
 		| '1000-2000'
 		| '2000-plus';
 
-	type ProductInquiryFormData = {
+	export type ProductInquiryFormData = {
 		budget?: BudgetRange;
 		categoryId?: string;
 		roomId?: string;
@@ -111,7 +111,7 @@
 			});
 
 			if (!response.ok) {
-				throw new Error('Failed to submit inquiry');
+				submitError = 'Failed to submit inquiry';
 			}
 
 			isSuccess = true;
