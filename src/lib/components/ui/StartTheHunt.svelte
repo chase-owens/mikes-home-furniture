@@ -13,6 +13,6 @@
 	</p>
 
 	<a href="/concierge" class="btn-base btn-primary mt-6 inline-flex rounded-full px-6 py-3">
-		Start your own treasure hunt
+		Start the Hunt
 	</a>
 </div>

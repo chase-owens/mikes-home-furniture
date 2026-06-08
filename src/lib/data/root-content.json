@@ -50,7 +50,7 @@
     "title": "The Treasure Hunt",
     "subTitle": "Not every great piece comes from a showroom. These are a few memorable finds from the hunt.",
     "maxItems": 4,
-    "ctaLabel": "View all treasure hunt finds",
+    "ctaLabel": "Explore more finds",
     "ctaHref": "/treasure-hunt"
   }
 }
