@@ -1,18 +1,29 @@
 <script lang="ts">
 	import ContactForm from '$lib/components/ui/ContactForm.svelte';
 	import { PUBLIC_CONTENT_BASE_URL } from '$env/static/public';
+	import BackLink from '$lib/components/ui/BackLink.svelte';
+	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 
 	const conciergeImage = `${PUBLIC_CONTENT_BASE_URL}/images/concierge-photo.jpg.webp`;
 </script>
 
+<svelte:head>
+	<title>Vinteeks | Find</title>
+	<meta
+		name="description"
+		content="Put Mike on the hunt for hard to find furniture and other treasure"
+	/>
+</svelte:head>
+
+<BackLink />
+
 <section class="space-y-8">
-	<div>
-		<h2 class="mt-2 text-2xl sm:text-3xl">Furniture Concierge</h2>
-		<p class="text-muted mt-4 text-lg">
-			Tell us about your space, style, and budget. We'll help find the right piece or source
-			something similar.
-		</p>
-	</div>
+	<PageHeader
+		title="Start the Hunt"
+		subTitle="Tell us what you're looking for"
+		description="Share your style, space, budget, and inspiration. We'll help find the right "
+	/>
+
 	<div class="grid items-stretch gap-8 lg:grid-cols-2">
 		<img src={conciergeImage} alt="curated living room" />
 		<div

@@ -4,14 +4,17 @@
 	import CardGrid from './CardGrid.svelte';
 	import type { Product } from '$lib/models/products';
 	import { filterProducts } from '$lib/utils/filterProducts';
+	import PageHeader from './PageHeader.svelte';
 
 	type ListingPageProps = {
+		description: string;
 		canFilter?: boolean;
 		title: string;
+		subTitle: string;
 		items: Product[];
 	};
 
-	let { canFilter = false, items, title }: ListingPageProps = $props();
+	let { canFilter = false, items, title, subTitle, description }: ListingPageProps = $props();
 
 	let searchTerm = $state<string>('');
 
@@ -22,13 +25,7 @@
 
 <section class="space-y-4">
 	<div class="flex items-end justify-between gap-4">
-		<h2 class="mt-2 text-2xl sm:text-3xl">
-			{title}
-		</h2>
-
-		<p class="text-foreground/70 text-sm">
-			{filteredProducts.length} items
-		</p>
+		<PageHeader {subTitle} {title} {description} />
 	</div>
 
 	{#if canFilter}

@@ -5,10 +5,7 @@
 <section class="space-y-8">
 	<div>
 		<h2 class="mt-2 text-2xl sm:text-3xl">Furniture Concierge</h2>
-		<p class="text-muted mt-4 text-lg">
-			Tell us about your space, style, and budget. We'll help find the right piece or source
-			something similar.
-		</p>
+		<p class="text-muted mt-4 text-lg">Let's start a treasure hunt together</p>
 	</div>
 	<ContactForm />
 </section>

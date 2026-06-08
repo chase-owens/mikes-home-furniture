@@ -4,6 +4,7 @@
 	import ProductCard from '$lib/components/cards/ProductCard.svelte';
 	import CardGrid from '$lib/components/layout/CardGrid.svelte';
 	import type { PageData } from './$types';
+	import PageHeader from '$lib/components/layout/PageHeader.svelte';
 
 	const { data }: { data: PageData } = $props();
 	const { product, relatedProducts } = $derived(data);
@@ -24,6 +25,7 @@
 {#if product}
 	<section class="space-y-8">
 		<BackLink />
+		<PageHeader title={product.type} subTitle={product.name} description={`$${product.price}`} />
 
 		<div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
 			<div class="rounded-vintage border-border bg-surface shadow-soft overflow-hidden border">
@@ -51,21 +53,9 @@
 				{/each}
 			</div>
 
-			<div class="p-5 sm:p-6">
-				<p class="text-highlight text-xs font-medium tracking-[0.25em] uppercase">
-					{product.type}
-				</p>
-
-				<h1 class="mt-3 text-3xl leading-tight sm:text-4xl">
-					{product.name}
-				</h1>
-
-				<p class="mt-4 text-2xl font-semibold">
-					${product.price}
-				</p>
-
+			<div class="flex flex-col gap-2">
 				{#if product.status === 'rented' || product.canRent}
-					<p class="bg-accent text-medium mt-2 w-fit px-2 pt-1.5 pb-1 font-semibold">
+					<p class="bg-accent text-medium w-fit px-2 font-semibold">
 						{#if product.status === 'rented'}
 							Currently Rented
 						{:else}
@@ -75,21 +65,17 @@
 				{/if}
 
 				{#if product.material}
-					<p class="text-foreground/65 mt-4 text-sm">
+					<p class="text-foreground/65 text-sm">
 						Material: {product.material}
 					</p>
 				{/if}
 
-				<p class="text-foreground/75 mt-5 text-sm leading-7 sm:text-base">
+				<p class="text-foreground/75 text-sm leading-7 sm:text-base">
 					{product.description}
 				</p>
 
-				<div class="mt-6">
-					<button
-						type="button"
-						onclick={() => (isInquiryOpen = true)}
-						class="bg-primary text-surface rounded-vintage hover:bg-highlight shadow-soft px-5 py-3 text-sm font-medium transition"
-					>
+				<div class="mt-1">
+					<button type="button" onclick={() => (isInquiryOpen = true)} class="btn-base btn-primary">
 						Ask About This Item
 					</button>
 					{#if isInquiryOpen}

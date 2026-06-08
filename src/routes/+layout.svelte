@@ -19,11 +19,12 @@
 
 		if (
 			path === '/' ||
-			path === '/categories' ||
-			path.startsWith('/categories/') ||
 			path === '/shop' ||
+			path === '/concierge' ||
+			path.startsWith('/categories') ||
 			path.startsWith('/products/') ||
-			path.startsWith('/rooms')
+			path.startsWith('/rooms') ||
+			path.startsWith('/treasure-hunt')
 		) {
 			navigationStack.push(path);
 		}

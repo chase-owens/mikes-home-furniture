@@ -58,12 +58,16 @@
 		border: 2px solid var(--color-border);
 	}
 
+	.btn-option {
+		@apply rounded-vintage px-2 py-2 text-center text-sm font-medium transition-colors;
+	}
+
 	.btn-primary {
-		@apply bg-primary text-white;
+		@apply bg-primary hover:bg-secondary text-white;
 	}
 
 	.btn-secondary {
-		@apply text-foreground border-foreground border-2;
+		@apply border-foreground text-foreground hover:bg-border border-1;
 	}
 
 	.btn-link-primary {

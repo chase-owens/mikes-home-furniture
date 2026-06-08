@@ -1,6 +1,12 @@
 <script lang="ts">
 	import { PUBLIC_UPLOAD_URL_API, PUBLIC_CONTACT_API_URL } from '$env/static/public';
-	type BudgetRange = 'under-250' | '250-500' | '500-1000' | '1000-2000' | '2000-plus';
+	type BudgetRange =
+		| 'not-sure-yet'
+		| 'under-250'
+		| '250-500'
+		| '500-1000'
+		| '1000-2000'
+		| '2000-plus';
 
 	type ProductInquiryFormData = {
 		budget?: BudgetRange;
@@ -21,8 +27,9 @@
 	let selectedFiles = $state<File[]>([]);
 
 	let formData: ProductInquiryFormData = $state({
-		categoryId: undefined,
-		roomId: undefined,
+		budget: 'not-sure-yet',
+		categoryId: '',
+		roomId: '',
 		productId: undefined,
 		name: '',
 		email: '',
@@ -142,13 +149,15 @@
 		/>
 	</div>
 
-	<fieldset class="flex flex-col gap-3">
-		<legend class="text-foreground text-sm font-medium">Preferred contact method</legend>
+	<fieldset class="flex flex-col gap-2">
+		<p class="text-foreground text-sm font-medium">Preferred Contact Method</p>
 
 		<div class="grid grid-cols-3 gap-4">
 			{#each ['text', 'call', 'email'] as method}
 				<label
-					class="border-border bg-background rounded-vintage has-checked:border-primary has-checked:bg-primary flex cursor-pointer items-center justify-center gap-2 border px-3 py-3 text-sm capitalize transition has-[:checked]:text-white"
+					class={`btn-option flex cursor-pointer items-center justify-center capitalize ${
+						formData.preferredContact === method ? 'btn-primary' : 'btn-secondary'
+					}`}
 				>
 					<input
 						type="radio"
@@ -208,9 +217,9 @@
 					id="categoryId"
 					name="categoryId"
 					bind:value={formData.categoryId}
-					class="border-border bg-background text-foreground rounded-vintage focus:border-primary focus:ring-primary/20 h-10 border px-4 py-3 text-sm outline-none focus:ring-2"
+					class="border-border bg-background text-foreground rounded-vintage focus:border-primary focus:ring-primary/20 h-10 border px-4 text-sm outline-none focus:ring-2"
 				>
-					<option value="" disabled selected>Category </option>
+					<option value="" disabled>Category </option>
 					<option value="chairs">Chairs</option>
 					<option value="tables">Tables</option>
 					<option value="storage">Storage</option>
@@ -227,9 +236,9 @@
 					id="roomId"
 					name="roomId"
 					bind:value={formData.roomId}
-					class="border-border bg-background text-foreground rounded-vintage focus:border-primary focus:ring-primary/20 h-10 border px-4 py-3 text-sm outline-none focus:ring-2"
+					class="border-border bg-background text-foreground rounded-vintage focus:border-primary focus:ring-primary/20 h-10 border px-4 text-sm outline-none focus:ring-2"
 				>
-					<option value="" disabled selected>Room </option>
+					<option value="" disabled>Room </option>
 					<option value="living-room">Living Room</option>
 					<option value="dining-room">Dining Room</option>
 					<option value="bedroom">Bedroom</option>
@@ -245,9 +254,9 @@
 					id="budget"
 					name="budget"
 					bind:value={formData.budget}
-					class="border-border bg-background text-foreground rounded-vintage focus:border-primary focus:ring-primary/20 h-10 border px-4 py-3 text-sm outline-none focus:ring-2"
+					class="border-border bg-background text-foreground rounded-vintage focus:border-primary focus:ring-primary/20 h-10 border px-4 text-sm outline-none focus:ring-2"
 				>
-					<option value="" disabled selected>Not sure yet </option>
+					<option value="not-sure-yet" disabled>Not sure yet </option>
 					<option value="under-250">Under $250 </option>
 					<option value="$250-$500">$250 - $500</option>
 					<option value="$$500-$1000">$$500 - $1000</option>
@@ -259,9 +268,7 @@
 	{/if}
 
 	<div class="flex flex-col gap-2">
-		<label for="message" class="text-foreground text-sm font-medium"
-			>Tell us what you're looking for</label
-		>
+		<label for="message" class="text-foreground text-sm font-medium">Tell us More</label>
 		<textarea
 			id="message"
 			name="message"
@@ -311,11 +318,7 @@
 		</p>
 	{/if}
 
-	<button
-		type="submit"
-		disabled={isSubmitting}
-		class="bg-primary text-surface rounded-vintage hover:bg-highlight shadow-soft px-5 py-3 text-sm font-medium transition"
-	>
+	<button type="submit" disabled={isSubmitting} class="btn-base btn-primary">
 		{isSubmitting ? 'Sending request...' : 'Send request'}
 	</button>
 </form>
