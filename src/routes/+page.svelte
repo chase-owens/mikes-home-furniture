@@ -1,18 +1,30 @@
 <script lang="ts">
 	import HomepageHero from '$lib/components/layout/HomepageHero.svelte';
 	import ModuleRenderer from '$lib/components/layout/ModuleRenderer.svelte';
+	import TreasureHuntModule from '$lib/components/layout/TreasureHuntModule.svelte';
+	import type { TreasureHuntItem } from '$lib/models/treasureHunt';
 	import type { PageData } from './$types';
 
-	const { data }: { data: PageData } = $props();
+	type HomePageData = PageData & {
+		treasureHuntItems: TreasureHuntItem[];
+	};
 
-	const { hero, modules, products } = $derived(data);
+	const { data }: { data: HomePageData } = $props();
+
+	const { hero, modules, products, treasureHunt } = $derived(data);
+
+	const contactModule = $derived(modules.find((module) => module.type === 'contactCard'));
+	const mainModules = $derived(modules.filter((module) => module.type !== 'contactCard'));
 </script>
-
-<svelte:head>
-	<title>Vinteeks | Home</title>
-</svelte:head>
 
 <div class="flex flex-col gap-12">
 	<HomepageHero {...hero} />
-	<ModuleRenderer {modules} {products} />
+
+	<ModuleRenderer modules={mainModules} {products} />
+
+	<TreasureHuntModule {...treasureHunt} treasureHuntItems={data.treasureHuntItems} />
+
+	{#if contactModule}
+		<ModuleRenderer modules={[contactModule]} {products} />
+	{/if}
 </div>

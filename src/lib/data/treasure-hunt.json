@@ -1,0 +1,79 @@
+{
+  "treasureHunt": [
+    {
+      "id": "vintage-green-sofa",
+      "title": "Vintage Green Sofa",
+      "description": "A statement sofa sourced for a living room refresh.",
+      "image": "images/living-room-3.png",
+      "category": "Sofas",
+      "room": "Living Room",
+      "tags": [
+        "vintage",
+        "statement piece",
+        "color"
+      ],
+      "foundFor": "A cozy lounge-style living room",
+      "highlight": "Proof that unique pieces do not have to feel random."
+    },
+    {
+      "id": "carved-wood-guardians",
+      "title": "Pair of Carved Wood Guardians",
+      "image": "images/1780875837229-img_5080.jpg",
+      "category": "Decor",
+      "room": "Entryway",
+      "tags": [
+        "carved wood",
+        "global",
+        "conversation piece"
+      ],
+      "foundFor": "A collector who wanted something nobody else would have",
+      "highlight": "Mike does not just look for furniture — he finds pieces with a story.",
+      "description": "A bold pair of carved wood figures with age, texture, and presence. The kind of find that turns an empty corner or entryway into something people immediately ask about."
+    },
+    {
+      "id": "oversized-carved-wood-figure",
+      "title": "Oversized Carved Wood Figure",
+      "image": "images/1780875820780-img_4614.jpeg",
+      "category": "Decor",
+      "room": "Living Room",
+      "tags": [
+        "statement decor",
+        "wood",
+        "one of one"
+      ],
+      "foundFor": "Someone looking for a true statement piece",
+      "highlight": "Some finds are not about matching a room — they are about giving the room personality.",
+      "description": "Large, sculptural, and full of character. This is the kind of piece Mike spots because he sees beyond basic inventory and recognizes what can anchor a space."
+    },
+    {
+      "id": "green-m-and-m-character-display",
+      "title": "Green M&M Character Display",
+      "image": "images/1780875809390-img_3141.jpeg",
+      "category": "Collectibles",
+      "room": "Game Room",
+      "tags": [
+        "collectible",
+        "playful",
+        "retro"
+      ],
+      "foundFor": "A game room, shop display, or collector setup",
+      "highlight": "If you are looking for something unusual, Mike knows how to hunt beyond the obvious.",
+      "description": "A playful oversized display piece with instant nostalgia. Not every find has to be serious — sometimes the right piece is the one that makes people smile."
+    },
+    {
+      "id": "oversized-character-head",
+      "title": "Oversized Character Head",
+      "image": "images/1780875797191-img_3988.jpeg",
+      "category": "Collectibles",
+      "room": "Creative Space",
+      "tags": [
+        "oversized",
+        "quirky",
+        "display piece"
+      ],
+      "foundFor": "A creative space that needed something memorable",
+      "highlight": "Mike has an eye for pieces that make a space feel collected, not copied.",
+      "description": "Big, weird, fun, and impossible to ignore. A perfect example of the kind of unexpected find that can turn a plain room into a space with a point of view."
+    }
+  ]
+}

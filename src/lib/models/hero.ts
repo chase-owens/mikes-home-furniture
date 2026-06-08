@@ -1,3 +1,5 @@
+import type { TreasureHuntConfig } from './treasureHunt';
+
 export type ProductType = 'featured' | 'sale' | 'new-arrival';
 enum CtaType {
 	default = 'default',
@@ -71,4 +73,5 @@ type Module = ProductList | CardList | CtaCard | StepCard | ContactCard | CtaCar
 export type RootContent = {
 	hero: Hero;
 	modules: Module[];
+	treasureHunt: TreasureHuntConfig;
 };
