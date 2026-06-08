@@ -21,6 +21,12 @@
   },
   "modules": [
     {
+      "title": "Shop by Room",
+      "subTitle": "Start with the space you're furnishing",
+      "type": "cardList",
+      "cardType": "rooms"
+    },
+    {
       "title": "How It Works",
       "subTitle": "Furniture shopping without the hunt.",
       "steps": [
@@ -40,78 +46,17 @@
       "type": "stepCard"
     },
     {
-      "productType": "featured",
-      "subTitle": "Start with our top picks",
-      "title": "Featured Products",
-      "type": "productList"
-    },
-    {
-      "title": "Shop by Room",
-      "subTitle": "Start with the space you're furnishing",
-      "type": "cardList",
-      "cardType": "rooms"
-    },
-    {
-      "title": "Shop by Category",
-      "subTitle": "Checkout these categories to find what you're looking for",
-      "type": "cardList",
-      "cardType": "categories"
-    },
-    {
-      "type": "ctaCards",
-      "modules": [
-        {
-          "ctas": [
-            {
-              "href": "/featured",
-              "title": "View Featured Items",
-              "type": "default",
-              "variant": "primary"
-            }
-          ],
-          "description": "Featured items highlight great condition, strong value, or pieces that make a room come together fast.",
-          "title": "Featured",
-          "subTitle": "Hand-picked standout pieces.",
-          "background": "light",
-          "type": "ctaCard"
-        },
-        {
-          "ctas": [
-            {
-              "href": "/sale",
-              "title": "Shop Sale",
-              "type": "link",
-              "variant": "secondary"
-            }
-          ],
-          "description": "Browse markdowns, clearancce finds, and limited-quantity pieces priced to move.",
-          "title": "Sale",
-          "subTitle": "Good deals don't last long.",
-          "background": "dark",
-          "type": "ctaCard"
-        }
-      ]
-    },
-    {
-      "ctas": [
-        {
-          "href": "/new-arrivals",
-          "title": "View New Arrivals",
-          "type": "link",
-          "variant": "secondary"
-        }
-      ],
-      "description": "Check back often for new furniture, decor, and standout pieces. Inventory moves fast, so if you see something you like, message Mike to reserve it.",
-      "title": "New Arrivals",
-      "subTitle": "Fresh pieces added often.",
-      "background": "dark",
-      "type": "ctaCard"
-    },
-    {
       "title": "Ready to buy",
       "subTitle": "See something you like?",
       "description": "Message Mike on Facebook, call, or text to ask about availability, pickup, or delivery.",
       "type": "contactCard"
     }
-  ]
+  ],
+  "treasureHunt": {
+    "title": "The Treasure Hunt",
+    "subTitle": "Not every great piece comes from a showroom. These are a few memorable finds from the hunt.",
+    "maxItems": 4,
+    "ctaLabel": "View the Full Treasure Hunt",
+    "ctaHref": "/treasure-hunt"
+  }
 }

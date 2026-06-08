@@ -4,6 +4,7 @@ import { getContentUrl } from '$lib/content/getContentUrl';
 import type { Category } from '$lib/models/categories';
 import type { Product } from '$lib/models/products';
 import type { Sidebar } from '$lib/models/sideBar';
+import type { TreasureHuntItem } from '$lib/models/treasureHunt';
 
 import type { LayoutServerLoad } from './$types';
 
@@ -17,6 +18,10 @@ type ProductsResponse = {
 
 type RoomsResponse = {
 	rooms: Category[];
+};
+
+type TreasureHuntResponse = {
+	treasureHunt: TreasureHuntItem[];
 };
 
 type SidebarResponse = Sidebar;
@@ -45,17 +50,19 @@ async function fetchJson<T>(fetch: typeof globalThis.fetch, path: string): Promi
 }
 
 export const load: LayoutServerLoad = async ({ fetch }) => {
-	const [categories, products, rooms, sidebar] = await Promise.all([
+	const [categories, products, rooms, sidebar, treasureHunt] = await Promise.all([
 		fetchJson<CategoriesResponse>(fetch, '/data/categories.json'),
 		fetchJson<ProductsResponse>(fetch, '/data/products.json'),
 		fetchJson<RoomsResponse>(fetch, '/data/rooms.json'),
-		fetchJson<SidebarResponse>(fetch, '/data/side-bar.json')
+		fetchJson<SidebarResponse>(fetch, '/data/side-bar.json'),
+		fetchJson<TreasureHuntResponse>(fetch, '/data/treasure-hunt.json')
 	]);
 
 	return {
 		categories: categories.categories,
 		products: products.products,
 		rooms: rooms.rooms,
-		sidebar: sidebar
+		sidebar: sidebar,
+		treasureHuntItems: treasureHunt.treasureHunt
 	};
 };
