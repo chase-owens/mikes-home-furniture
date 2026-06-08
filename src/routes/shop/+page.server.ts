@@ -5,7 +5,7 @@ import { listingPages } from '$lib/config/listingPages';
 import type { PageServerLoad } from '../$types';
 
 export const load: PageServerLoad = async ({ parent }) => {
-	const { title } = listingPages['shop'];
+	const { title, subTitle, description } = listingPages['shop'];
 	const { products } = await parent();
 
 	if (!title) {
@@ -15,7 +15,9 @@ export const load: PageServerLoad = async ({ parent }) => {
 	const items = products;
 
 	return {
+		description,
 		items,
-		title
+		title,
+		subTitle
 	};
 };

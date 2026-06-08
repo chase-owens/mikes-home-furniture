@@ -70,14 +70,12 @@
 			<div class="border-border bg-surface sticky top-0 border-b">
 				<div class="flex items-center justify-between px-4 py-4">
 					<div>
-						<p class="text-highlight text-xs font-medium tracking-[0.25em] uppercase">
-							Browse Furniture
-						</p>
+						<p class="text-highlight text-xs font-medium tracking-[0.25em] uppercase">Menu</p>
 					</div>
 
 					<button
 						type="button"
-						class="rounded-vintage border-border bg-background shadow-soft hover:bg-accent/30 inline-flex h-10 w-10 items-center justify-center border transition"
+						class="rounded-vintage border-border bg-background shadow-soft hover:bg-accent/30 inline-flex h-10 w-10 cursor-pointer items-center justify-center border transition"
 						aria-label="Close menu"
 						onclick={closeMenu}
 					>
@@ -87,23 +85,46 @@
 
 				<div class="p-4">
 					<section>
+						<p class="text-highlight mb-3 text-xs font-medium tracking-[0.25em] uppercase">
+							Explore
+						</p>
+
 						<div class="grid gap-2">
-							{#each ctas as cta}
-								<a
-									href={cta.href}
-									class="rounded-vintage border-border bg-surface shadow-soft hover:border-primary hover:bg-accent/20 border px-4 py-3 text-sm font-medium transition"
-									onclick={closeMenu}
-								>
-									{cta.label}
-								</a>
-							{/each}
+							<a
+								href="/shop"
+								class="rounded-vintage border-border bg-surface shadow-soft hover:border-primary hover:bg-accent/20 border px-4 py-3 text-sm font-medium transition"
+								onclick={closeMenu}
+							>
+								Inventory
+							</a>
+
+							<a
+								href="/treasure-hunt"
+								class="rounded-vintage border-border bg-surface shadow-soft hover:border-primary hover:bg-accent/20 border px-4 py-3 text-sm font-medium transition"
+								onclick={closeMenu}
+							>
+								Treasure Hunt Finds
+							</a>
 						</div>
 					</section>
 
 					<section class="mt-6">
 						<p class="text-highlight mb-3 text-xs font-medium tracking-[0.25em] uppercase">
-							Shop by Room
+							Services
 						</p>
+
+						<a
+							href="/concierge"
+							class="rounded-vintage bg-primary text-background shadow-soft hover:bg-secondary block px-4 py-4 text-center text-sm font-medium transition"
+							onclick={closeMenu}
+						>
+							Start a Treasure Hunt
+						</a>
+					</section>
+
+					<section class="mt-6">
+						<p class="text-highlight mb-3 text-xs font-medium tracking-[0.25em] uppercase">Rooms</p>
+
 						<div class="grid gap-3">
 							{#each rooms as room}
 								<a
@@ -113,38 +134,17 @@
 								>
 									<div class="flex items-start justify-between gap-3">
 										<div>
-											<h3 class="text-base font-semibold">{room.label}</h3>
+											<h3 class="font-heading text-xl leading-tight">{room.label}</h3>
 											<p class="text-foreground/70 mt-1 text-sm leading-6">
 												{room.description}
 											</p>
 										</div>
+
 										<span class="text-primary mt-1">→</span>
 									</div>
 								</a>
 							{/each}
 						</div>
-					</section>
-
-					<section class="mt-6">
-						<p class="text-highlight mb-3 text-xs font-medium tracking-[0.25em] uppercase">
-							Featured
-						</p>
-					</section>
-
-					<section class="mt-6">
-						<a
-							href={featuredCta.href}
-							class="rounded-vintage border-border bg-primary text-background shadow-soft block border p-5 transition hover:opacity-95"
-							onclick={closeMenu}
-						>
-							<p class="text-background/80 text-xs font-medium tracking-[0.2em] uppercase">
-								{featuredCta.title}
-							</p>
-							<h4 class="font-heading mt-2 text-xl">{featuredCta.subtitle}</h4>
-							<p class="text-background/85 mt-2 text-sm">
-								{featuredCta.description}
-							</p>
-						</a>
 					</section>
 				</div>
 			</div>

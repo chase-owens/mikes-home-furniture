@@ -44,19 +44,13 @@
         }
       ],
       "type": "stepCard"
-    },
-    {
-      "title": "Ready to buy",
-      "subTitle": "See something you like?",
-      "description": "Message Mike on Facebook, call, or text to ask about availability, pickup, or delivery.",
-      "type": "contactCard"
     }
   ],
   "treasureHunt": {
     "title": "The Treasure Hunt",
     "subTitle": "Not every great piece comes from a showroom. These are a few memorable finds from the hunt.",
     "maxItems": 4,
-    "ctaLabel": "View the Full Treasure Hunt",
+    "ctaLabel": "View all treasure hunt finds",
     "ctaHref": "/treasure-hunt"
   }
 }

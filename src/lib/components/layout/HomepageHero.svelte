@@ -9,7 +9,7 @@
 	};
 </script>
 
-<section class="grid items-stretch gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
+<section class="grid items-stretch gap-4 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
 	<div class="bg-surface flex flex-col justify-center rounded-4xl p-7 sm:p-8 lg:p-10">
 		<p class="text-highlight mb-6 text-xs font-medium tracking-[0.35em] uppercase sm:text-sm">
 			{title}

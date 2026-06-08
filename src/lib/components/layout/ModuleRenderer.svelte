@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { Component } from 'svelte';
 	import CategoriesListingModule from '../modules/CategoriesListingModule.svelte';
-	import ContactModule from '../modules/ContactModule.svelte';
 	import CtaCardModule from '../modules/CtaCardModule.svelte';
 	import CtaCardsModule from '../modules/CtaCardsModule.svelte';
 	import ProductListingModule from '../modules/ProductListingModule.svelte';
@@ -11,7 +10,6 @@
 
 	const componentMap: Record<string, Component<any>> = {
 		cardList: CategoriesListingModule,
-		contactCard: ContactModule,
 		ctaCard: CtaCardModule,
 		ctaCards: CtaCardsModule,
 		productList: ProductListingModule,

@@ -8,7 +8,8 @@ import type { PageServerLoad } from './$types';
 export const prerender = true;
 
 export const load: PageServerLoad = async ({ parent, params }) => {
-	const { title } = listingPages[params.categoryId as keyof typeof listingPages];
+	const { title, subTitle, description } =
+		listingPages[params.categoryId as keyof typeof listingPages];
 	const { products } = await parent();
 
 	if (!title) {
@@ -17,8 +18,5 @@ export const load: PageServerLoad = async ({ parent, params }) => {
 
 	const items = getProductsByFilterKey(products, params.categoryId);
 
-	return {
-		items,
-		title
-	};
+	return { description, items, subTitle, title };
 };

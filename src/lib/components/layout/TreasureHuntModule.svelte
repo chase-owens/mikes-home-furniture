@@ -13,27 +13,20 @@
 </script>
 
 <section>
-	<div class="rounded-vintage border-border bg-surface shadow-soft border p-6 sm:p-8">
-		<div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-			<div class="max-w-3xl">
-				<p class="text-highlight mb-2 text-xs font-medium tracking-[0.25em] uppercase sm:text-sm">
-					{title}
-				</p>
+	<div
+		class="rounded-vintage border-border bg-surface shadow-soft flex flex-col gap-4 border p-6 sm:p-8"
+	>
+		<div class="flex flex-col gap-2">
+			<p class="text-highlight text-xs font-medium tracking-[0.25em] uppercase sm:text-sm">
+				{title}
+			</p>
 
-				<h2 class="text-text font-serif text-2xl leading-tight sm:text-3xl">
-					{subTitle}
-				</h2>
-			</div>
-
-			<a
-				href={ctaHref}
-				class="border-highlight text-highlight hover:bg-highlight hover:text-surface rounded-full border px-5 py-2 text-sm font-medium transition"
-			>
-				{ctaLabel}
-			</a>
+			<h2 class="text-text font-serif text-2xl leading-tight sm:text-3xl">
+				{subTitle}
+			</h2>
 		</div>
 
-		<div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+		<div class="mt-2 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
 			{#each items as item}
 				<article class="border-border bg-background overflow-hidden rounded-xl border">
 					<img
@@ -69,5 +62,13 @@
 				</article>
 			{/each}
 		</div>
+
+		<a
+			href={ctaHref}
+			class="text-primary hover:text-highlight mt-2 inline-flex w-fit items-center gap-2 text-sm font-medium transition-colors"
+		>
+			{ctaLabel}
+			<span aria-hidden="true">→</span>
+		</a>
 	</div>
 </section>
