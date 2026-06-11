@@ -14,7 +14,9 @@
 	<div class="flex flex-col gap-2">
 		<p class="text-highlight text-sm font-semibold tracking-[0.2em] uppercase">Customer Reviews</p>
 
-		<h2 class="font-heading text-foreground text-3xl">Treasure Finds, Happy Buyers</h2>
+		<h2 class="font-heading text-foreground text-3xl">
+			Vintage Finds, Antique Treasures, Happy Buyers
+		</h2>
 
 		<p class="text-foreground/70 max-w-2xl">
 			Real feedback from local buyers who found unique pieces through Mike.

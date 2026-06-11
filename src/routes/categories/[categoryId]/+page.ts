@@ -3,11 +3,9 @@ import { error } from '@sveltejs/kit';
 import { listingPages } from '$lib/config/listingPages';
 import { getProductsByFilterKey } from '$lib/utils/getProductsByFilterKey';
 
-import type { PageServerLoad } from './$types';
+import type { PageLoad } from './$types';
 
-export const prerender = true;
-
-export const load: PageServerLoad = async ({ parent, params }) => {
+export const load: PageLoad = async ({ parent, params }) => {
 	const { title, subTitle, description } =
 		listingPages[params.categoryId as keyof typeof listingPages];
 	const { products } = await parent();

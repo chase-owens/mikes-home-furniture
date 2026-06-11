@@ -31,7 +31,5 @@ export const POST: RequestHandler = async ({ request }) => {
 		);
 	}
 
-	console.log(result.data);
-
 	return json({ success: true });
 };

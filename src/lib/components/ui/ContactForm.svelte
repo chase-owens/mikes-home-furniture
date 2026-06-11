@@ -67,7 +67,6 @@
 		try {
 			if (selectedFiles.length) {
 				for (const file of selectedFiles) {
-					console.log(PUBLIC_UPLOAD_URL_API, file.name);
 					const uploadUrlResponse = await fetch(PUBLIC_UPLOAD_URL_API, {
 						method: 'POST',
 						headers: {
@@ -116,7 +115,6 @@
 
 			isSuccess = true;
 		} catch (error) {
-			console.error(error);
 			submitError = 'Unable to submit your request. Please try again.';
 		} finally {
 			isSubmitting = false;

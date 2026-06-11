@@ -2,9 +2,9 @@ import { error } from '@sveltejs/kit';
 
 import { listingPages } from '$lib/config/listingPages';
 
-import type { PageServerLoad } from '../$types';
+import type { PageLoad } from '../$types';
 
-export const load: PageServerLoad = async ({ parent }) => {
+export const load: PageLoad = async ({ parent }) => {
 	const { title, subTitle, description } = listingPages['shop'];
 	const { products } = await parent();
 
