@@ -5,6 +5,8 @@
 
 	import { afterNavigate } from '$app/navigation';
 	import { navigationStack } from '$lib/stores/navigationStack';
+	import { onMount } from 'svelte';
+	import { applyActiveTheme } from '$lib/utils/applyTheme.js';
 
 	afterNavigate(({ to }) => {
 		if (!to) {
@@ -31,6 +33,10 @@
 	});
 
 	let { children, data } = $props();
+
+	onMount(() => {
+		applyActiveTheme();
+	});
 </script>
 
 <svelte:head>
