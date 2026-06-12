@@ -14,6 +14,7 @@
 		roomId?: string;
 		productId?: string;
 		name: string;
+		lastName?: string;
 		email?: string;
 		phone?: string;
 		photos?: File[];
@@ -56,6 +57,10 @@
 
 	async function handleSubmit(event: SubmitEvent) {
 		event.preventDefault();
+
+		if (formData.lastName?.trim()) {
+			return;
+		}
 
 		isSubmitting = true;
 		submitError = '';
@@ -144,6 +149,14 @@
 			required
 			bind:value={formData.name}
 			class="border-border bg-background text-foreground rounded-vintage focus:border-primary focus:ring-primary/20 border px-4 py-3 text-sm outline-none focus:ring-2"
+		/>
+		<input
+			name="lastName"
+			type="text"
+			tabindex="-1"
+			autocomplete="off"
+			class="hidden"
+			bind:value={formData.lastName}
 		/>
 	</div>
 
