@@ -13,7 +13,6 @@ export const load: PageLoad = async ({ parent }) => {
 	if (!title || !description || !subTitle) {
 		throw error(404, 'Listing not found');
 	}
-
 	const items = getProductsByFilterKey(products as unknown as Product[], 'sale');
 
 	return {
