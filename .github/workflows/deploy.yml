@@ -32,6 +32,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Create env file
+        run: |
+          echo "PUBLIC_CONTENT_BASE_URL=/data" >> .env
+          echo "PUBLIC_CONTACT_API_URL=https://n5k7mx128f.execute-api.us-east-1.amazonaws.com/contact" >> .env
+          echo "PUBLIC_UPLOAD_URL_API=https://n5k7mx128f.execute-api.us-east-1.amazonaws.com/inquiries/upload-url" >> .env
+
       - name: Check
         run: npm run check --if-present
 
